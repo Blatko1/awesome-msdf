@@ -1,4 +1,4 @@
-# *MSDF shaders* - showcase
+# *MSDF text* - showcase
 
 > ⚠️ This showcase is still being developed so you may not find some of the listed *features*. ⚠️
 
