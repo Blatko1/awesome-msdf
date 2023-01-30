@@ -12,7 +12,6 @@
 			<rendertexture />
 			<items>
 				<item name="quadAState" type="renderstate">
-					<cullfront>true</cullfront>
 					<blend>true</blend>
 					<alpha2coverage>false</alpha2coverage>
 					<colorsrcfactor>Source Alpha</colorsrcfactor>
@@ -47,8 +46,8 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<x>-0.304151714</x>
-					<z>1.67549825</z>
+					<x>-1.19688749</x>
+					<y>1.67891824</y>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -70,7 +69,6 @@
 			<rendertexture />
 			<items>
 				<item name="quadBState" type="renderstate">
-					<cullfront>true</cullfront>
 					<blend>true</blend>
 					<alpha2coverage>false</alpha2coverage>
 					<colorsrcfactor>Source Alpha</colorsrcfactor>
@@ -105,8 +103,9 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<x>0.60824573</x>
-					<z>1.73517489</z>
+					<x>0.121264338</x>
+					<y>1.82604361</y>
+					<z>-0.0427417755</z>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -128,11 +127,10 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="charB" item="pipe" />
 		<entry type="camera" fp="false">
-			<distance>6</distance>
-			<pitch>14</pitch>
-			<yaw>163</yaw>
+			<distance>12</distance>
+			<pitch>19</pitch>
+			<yaw>0</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />

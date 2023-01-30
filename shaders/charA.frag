@@ -24,15 +24,15 @@ float bodySoftness = 0.1;
 
 void main() {
 	vec4 texel = texture(msdf, uvCoord);
-	float distBorder =  0.5 - thickness;
-	float dist = median(texel.r, texel.g, texel.b) - distBorder;
+	float borderDist = 0.5 - thickness;
+	float dist = median(texel.r, texel.g, texel.b) - borderDist;
 	float pxRange = screenPxRange();
 	
   	float pxDist = pxRange * dist;
-	float bodyOpacity = clamp(pxDist + distBorder, 0.0, 1.0);
+	float bodyOpacity = clamp(pxDist + borderDist, 0.0, 1.0);
 	
 	float outlinePxDist = pxRange * (dist + outlineThickness);
-	float filledOutline = clamp(outlinePxDist + distBorder + outlineThickness, 0.0, 1.0);
+	float filledOutline = clamp(outlinePxDist + borderDist - outlineThickness, 0.0, 1.0);
 	
 	float outlineOpacity = filledOutline - bodyOpacity;
 	

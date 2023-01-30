@@ -10,6 +10,6 @@ layout (location = 2) in vec2 texCoord;
 out vec2 uvCoord;
 
 void main() {
-	uvCoord = texCoord;
+	uvCoord = vec2(1-texCoord.x, texCoord.y);
 	gl_Position = viewProj * transform * vec4(pos, 1.0);
 }
