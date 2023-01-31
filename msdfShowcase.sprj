@@ -1,13 +1,68 @@
 <?xml version="1.0"?>
 <project version="2">
 	<pipeline>
-		<pass name="basic" type="shader" active="true" patchverts="1">
-			<shader type="vs" path="shaders\charB.vert" entry="main" />
-			<shader type="ps" path="shaders\charB.frag" entry="main" />
+		<pass name="outlining" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\thickness_outlining.vert" entry="main" />
+			<shader type="ps" path="shaders\thickness_outlining.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
 				<item value="Texcoord" semantic="TEXCOORD0" />
-				<item value="BufferInt" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="quadAState" type="renderstate">
+					<blend>true</blend>
+					<alpha2coverage>false</alpha2coverage>
+					<colorsrcfactor>Source Alpha</colorsrcfactor>
+					<colordstfactor>Inverse Source Alpha</colordstfactor>
+					<colorfunc>Add</colorfunc>
+					<alphasrcfactor>Source Alpha</alphasrcfactor>
+					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
+					<alphafunc>Add</alphafunc>
+					<blendfactor_r>1</blendfactor_r>
+					<blendfactor_g>1</blendfactor_g>
+					<blendfactor_b>1</blendfactor_b>
+					<blendfactor_a>1</blendfactor_a>
+					<depthtest>true</depthtest>
+					<depthclamp>true</depthclamp>
+					<depthmask>true</depthmask>
+					<depthfunc>Less</depthfunc>
+					<depthbias>0</depthbias>
+					<stenciltest>false</stenciltest>
+					<stencilmask>0</stencilmask>
+					<stencilref>255</stencilref>
+					<stencilfrontfunc>Equal</stencilfrontfunc>
+					<stencilbackfunc>Equal</stencilbackfunc>
+					<stencilfrontpass>Keep</stencilfrontpass>
+					<stencilbackpass>Keep</stencilbackpass>
+					<stencilfrontfail>Keep</stencilfrontfail>
+					<stencilbackfail>Keep</stencilbackfail>
+					<depthfrontfail>Keep</depthfrontfail>
+					<depthbackfail>Keep</depthbackfail>
+				</item>
+				<item name="quadA" type="geometry">
+					<type>Plane</type>
+					<width>1</width>
+					<height>1</height>
+					<depth>1</depth>
+					<x>1.23688984</x>
+					<topology>TriangleList</topology>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float4x4" name="viewProj" system="ViewProjection" />
+				<variable type="float4x4" name="transform" system="GeometryTransform" />
+			</variables>
+			<macros />
+		</pass>
+		<pass name="basic" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\basic.vert" entry="main" />
+			<shader type="ps" path="shaders\basic.frag" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+				<item value="BufferInt" semantic="TEXCOORD0" />
 			</inputlayout>
 			<rendertexture />
 			<items>
@@ -125,66 +180,11 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="outlining" type="shader" active="true" patchverts="1">
-			<shader type="vs" path="shaders\charA.vert" entry="main" />
-			<shader type="ps" path="shaders\charA.frag" entry="main" />
-			<inputlayout>
-				<item value="Position" semantic="POSITION" />
-				<item value="Texcoord" semantic="TEXCOORD0" />
-			</inputlayout>
-			<rendertexture />
-			<items>
-				<item name="quadAState" type="renderstate">
-					<blend>true</blend>
-					<alpha2coverage>false</alpha2coverage>
-					<colorsrcfactor>Source Alpha</colorsrcfactor>
-					<colordstfactor>Inverse Source Alpha</colordstfactor>
-					<colorfunc>Add</colorfunc>
-					<alphasrcfactor>Source Alpha</alphasrcfactor>
-					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
-					<alphafunc>Add</alphafunc>
-					<blendfactor_r>1</blendfactor_r>
-					<blendfactor_g>1</blendfactor_g>
-					<blendfactor_b>1</blendfactor_b>
-					<blendfactor_a>1</blendfactor_a>
-					<depthtest>true</depthtest>
-					<depthclamp>true</depthclamp>
-					<depthmask>true</depthmask>
-					<depthfunc>Less</depthfunc>
-					<depthbias>0</depthbias>
-					<stenciltest>false</stenciltest>
-					<stencilmask>0</stencilmask>
-					<stencilref>255</stencilref>
-					<stencilfrontfunc>Equal</stencilfrontfunc>
-					<stencilbackfunc>Equal</stencilbackfunc>
-					<stencilfrontpass>Keep</stencilfrontpass>
-					<stencilbackpass>Keep</stencilbackpass>
-					<stencilfrontfail>Keep</stencilfrontfail>
-					<stencilbackfail>Keep</stencilbackfail>
-					<depthfrontfail>Keep</depthfrontfail>
-					<depthbackfail>Keep</depthbackfail>
-				</item>
-				<item name="quadA" type="geometry">
-					<type>Plane</type>
-					<width>1</width>
-					<height>1</height>
-					<depth>1</depth>
-					<x>1.23688984</x>
-					<topology>TriangleList</topology>
-				</item>
-			</items>
-			<itemvalues />
-			<variables>
-				<variable type="float4x4" name="viewProj" system="ViewProjection" />
-				<variable type="float4x4" name="transform" system="GeometryTransform" />
-			</variables>
-			<macros />
-		</pass>
 	</pipeline>
 	<objects>
 		<object type="texture" path="assets\A_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
-			<bind slot="1" name="basic" />
 			<bind slot="0" name="outlining" />
+			<bind slot="1" name="basic" />
 		</object>
 		<object type="texture" path="assets\B_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="0" name="basic" />
@@ -201,14 +201,12 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="file" name="basic" shader="vs" />
-		<entry type="file" name="basic" shader="ps" />
 		<entry type="file" name="outlining" shader="vs" />
 		<entry type="file" name="outlining" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>13</distance>
-			<pitch>11</pitch>
-			<yaw>354</yaw>
+			<distance>12</distance>
+			<pitch>5</pitch>
+			<yaw>4</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />

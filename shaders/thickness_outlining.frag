@@ -20,7 +20,6 @@ vec4 outlineColor = vec4(0.5, 0.4, 0.3, 1.0);
 
 float thickness = -0.2; // Range: -0.4 < thickness < 0.4
 float outlineThickness = 0.3; // Range: 0.0 < outlineThickness < 0.4
-float bodySoftness = 0.1;
 
 void main() {
 	vec4 texel = texture(msdf, uvCoord);

@@ -14,7 +14,7 @@ To see how the shaders work in real-time, you can download the [**SHADERed**](ht
 
 ## Basic MSDF usage
 
-The next snippet shows the basic usage of a MSDF texture (*distance field pixel range 4*) to render text. For more info check out this [explanation](https://github.com/Chlumsky/msdfgen#using-a-multi-channel-distance-field) from the msdfgen creator.
+The next snippet shows the basic usage of a MSDF texture (*distance field pixel range 4*) to render text while preserving highest quality. For more info check out this [explanation](https://github.com/Chlumsky/msdfgen#using-a-multi-channel-distance-field) from the msdfgen creator.
 
 ```glsl
 uniform sampler2D tex;
@@ -53,3 +53,21 @@ In the shaders, you can find examples of:
 - applying softness to the body or the text outline,
 - custom colored text drop shadow, 
 - gamma correction
+
+### Repo creation motive
+
+There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the very rare findings on this topic on the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. Accordingly, I want to fill this repo with as much information and code examples (basic to advanced) as possible.
+
+## Sources, links, articles and more info
+
+Here you can find links to all the sources that helped me learn about MSDF and create the showcase.
+
+> ⚠️ Constantly adding more! ⚠️
+
+- [Text Rendering For Games](https://docs.google.com/presentation/d/1NCYNyR726F6j7vxwxFw0w0t8c6DUbiEMaxwMBbdP__0/edit#slide=id.g43674374e_046) - Presentation which covers three different ways to render text for games (one of them being SDFs).
+- [The Valve paper](https://steamcdn-a.akamaihd.net/apps/valve/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf) - The idea of using distance fields to render text was originally proposed in this short *pdf*.
+- [Glyphs, shapes, fonts, signed distance fields. - YouTube](https://www.youtube.com/watch?v=1b5hIMqz_wM) - Short video explaining how to generate and use SDFs for rendering text or other 2D shapes.
+- [Drawing Text with Signed Distance Fields in Mapbox GL](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817) - Short article that covers the idea behind SDFs and the basic usage of SDFs for text rendering.
+- [Chlumsky/msdfgen: Multi-channel signed distance field generator](https://github.com/Chlumsky/msdfgen) - 
+- [Implementing SDF/MSDF Font In OpenGL](https://medium.com/@calebfaith/implementing-msdf-font-in-opengl-ea09a9ab7e00) - 
+- [MSDF text rendering performance demonstration - YouTube](https://www.youtube.com/watch?v=r-2z-ccuZKE) - Short video presenting the performance of using MSDFs when rendering a lot of text. Note that minified text looks much worse then the rest but I am convinced that methods used in this showcase avoid that efficiently.
