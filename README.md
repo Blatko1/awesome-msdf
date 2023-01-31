@@ -33,7 +33,7 @@ float screenPxRange() {
 }
 
 void main() {
-    vec4 texel = texture(charB, uvCoord);
+    vec4 texel = texture(tex, uvCoord);
     float dist = median(texel.r, texel.g, texel.b);
 
     float pxDist = screenPxRange() * (dist - 0.5);
