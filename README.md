@@ -48,13 +48,8 @@ void main() {
 In the shaders, you can find examples of:
 
 - basic text rendering in 3D space with quality preservation while being *magnified*, *minified* or *rotated*,
-
 - modifying text thickness,
-
 - adding a colored outline with custom thickness to the text,
-
 - applying softness to the body or the text outline,
-
 - custom colored text drop shadow, 
-
 - gamma correction
