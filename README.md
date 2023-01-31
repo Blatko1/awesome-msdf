@@ -26,7 +26,7 @@ float median(float r, float g, float b) {
     return max(min(r, g), min(max(r, g), b));
 }
 
-float screenPxRange(sampler2D tex) {
+float screenPxRange() {
     vec2 unitRange = vec2(4.0)/vec2(textureSize(tex, 0));
     vec2 screenTexSize = vec2(1.0)/fwidth(uvCoord);
     return max(0.5*dot(unitRange, screenTexSize), 1.0);
@@ -36,7 +36,7 @@ void main() {
     vec4 texel = texture(charB, uvCoord);
     float dist = median(texel.r, texel.g, texel.b);
 
-    float pxDist = pxRange * (dist - 0.5);
+    float pxDist = screenPxRange() * (dist - 0.5);
     float opacity = clamp(pxDist + 0.5, 0.0, 1.0);
 
     outColor = vec4(0.5, 0.5, 0.5, opacity);
