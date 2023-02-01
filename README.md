@@ -85,3 +85,7 @@ Here you can find links to all the sources that helped me learn about MSDF and c
 - [Chlumsky/msdfgen: Multi-channel signed distance field generator](https://github.com/Chlumsky/msdfgen) - Utility for generating SDF and M(T)SDF from vector shapes and fonts. Use [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen) to generate font atlases for rendering. If this project didn't exist, this repo wouldn't exist either.
 - [Implementing SDF/MSDF Font In OpenGL](https://medium.com/@calebfaith/implementing-msdf-font-in-opengl-ea09a9ab7e00) - An article covering how are MSDFs generated, how they work and the basic usage of MSDFs for text rendering.
 - [MSDF text rendering performance demonstration - YouTube](https://www.youtube.com/watch?v=r-2z-ccuZKE) - Short video presenting the performance of using MSDFs when rendering a lot of text. Note that minified text looks much worse than the rest, but I am convinced that methods used in this showcase avoid that efficiently.
+
+## Contributing
+
+All contributions like fixing grammar, adding new sources and improving shader code are welcome.
