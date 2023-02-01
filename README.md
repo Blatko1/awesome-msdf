@@ -64,24 +64,24 @@ Here you can find links to all the sources that helped me learn about MSDF and c
 
 > ⚠️ Constantly adding more! ⚠️
 
-##### Intro
+#### Intro
 
-- [Text Rendering For Games](https://docs.google.com/presentation/d/1NCYNyR726F6j7vxwxFw0w0t8c6DUbiEMaxwMBbdP__0/edit#slide=id.g43674374e_046) - Presentation which covers three different ways to render text for games (one of them being SDFs).
-- [The Valve paper](https://steamcdn-a.akamaihd.net/apps/valve/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf) - The idea of using distance fields to render text was originally proposed in this short *pdf*.
+- [Text Rendering For Games](https://docs.google.com/presentation/d/1NCYNyR726F6j7vxwxFw0w0t8c6DUbiEMaxwMBbdP__0/edit#slide=id.g43674374e_046) - The presentation covers three different ways to render text for games (one being SDFs).
+- [The Valve paper](https://steamcdn-a.akamaihd.net/apps/valve/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf) - This short *pdf*  by *Valve* originally proposed the idea of using distance fields to render text.
 
-##### SDFs (Signed distance field)
+#### SDFs (Signed distance field)
 
-- [Glyphs, shapes, fonts, signed distance fields. - YouTube](https://www.youtube.com/watch?v=1b5hIMqz_wM) - Short video explaining how to generate and use SDFs for rendering text or other 2D shapes.
-- [Drawing Text with Signed Distance Fields in Mapbox GL](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817) - Short article that covers the idea behind SDFs and the basic usage of SDFs for text rendering.
+- [Glyphs, shapes, fonts, signed distance fields - YouTube](https://www.youtube.com/watch?v=1b5hIMqz_wM) - Short video explaining how to generate and use SDFs to render text or other 2D shapes.
+- [Drawing Text with Signed Distance Fields in Mapbox GL](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817) - This is a short article covering how SDFs work and the basic usage of SDFs for text rendering.
 
-##### Antialiasing SDF text
+#### Antialiasing SDF text
 
-- [Cinder-SdfText: Initial Release (WIP) - Cinder](https://discourse.libcinder.org/t/cinder-sdftext-initial-release-wip) - Interesting discussion about a SDF text renderer and about improving the shader code to preserve the quality of minified SDF texts.
-- [Antialiasing with a signed distance field - Musing Mortoray](https://mortoray.com/antialiasing-with-a-signed-distance-field/) - Article which tries to explain how to properly setup the shader code for true antialiasing.
-- [Antialiasing For SDF Textures](https://drewcassidy.me/2020/06/26/sdf-antialiasing/) - Article which shows diferent ways of seting up the shader code for better antialiasing. Some parts are based on the explanations of the article above.
+- [Cinder-SdfText: Initial Release (WIP) - Cinder](https://discourse.libcinder.org/t/cinder-sdftext-initial-release-wip) - Interesting discussion about an SDF text renderer and improving the shader code to preserve the quality of minified SDF texts.
+- [Antialiasing with a signed distance field - Musing Mortoray](https://mortoray.com/antialiasing-with-a-signed-distance-field/) - An article which explains how to correctly set up the shader code for true antialiasing.
+- [Antialiasing For SDF Textures](https://drewcassidy.me/2020/06/26/sdf-antialiasing/) - An article which shows different ways of setting up the shader code for better antialiasing. Some parts are based on the explanations of the article above.
 
-##### MSDFs (Multi-channel signed distance field)
+#### MSDFs (Multi-channel signed distance field)
 
-- [Chlumsky/msdfgen: Multi-channel signed distance field generator](https://github.com/Chlumsky/msdfgen) - 
-- [Implementing SDF/MSDF Font In OpenGL](https://medium.com/@calebfaith/implementing-msdf-font-in-opengl-ea09a9ab7e00) - 
-- [MSDF text rendering performance demonstration - YouTube](https://www.youtube.com/watch?v=r-2z-ccuZKE) - Short video presenting the performance of using MSDFs when rendering a lot of text. Note that minified text looks much worse then the rest but I am convinced that methods used in this showcase avoid that efficiently.
+- [Chlumsky/msdfgen: Multi-channel signed distance field generator](https://github.com/Chlumsky/msdfgen) - Utility for generating SDF and M(T)SDF from vector shapes and fonts. Use [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen) to generate font atlases for rendering. If this project didn't exist, this repo wouldn't exist either.
+- [Implementing SDF/MSDF Font In OpenGL](https://medium.com/@calebfaith/implementing-msdf-font-in-opengl-ea09a9ab7e00) - An article covering how are MSDFs generated, how they work and the basic usage of MSDFs for text rendering.
+- [MSDF text rendering performance demonstration - YouTube](https://www.youtube.com/watch?v=r-2z-ccuZKE) - Short video presenting the performance of using MSDFs when rendering a lot of text. Note that minified text looks much worse than the rest, but I am convinced that methods used in this showcase avoid that efficiently.
