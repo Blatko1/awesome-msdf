@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <project version="2">
 	<pipeline>
-		<pass name="outlining" type="shader" active="true" patchverts="1">
-			<shader type="vs" path="shaders\thickness_outlining.vert" entry="main" />
-			<shader type="ps" path="shaders\thickness_outlining.frag" entry="main" />
+		<pass name="minified" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\minifiedVS.glsl" entry="main" />
+			<shader type="ps" path="shaders\minifiedPS.glsl" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
 				<item value="Texcoord" semantic="TEXCOORD0" />
 			</inputlayout>
 			<rendertexture />
 			<items>
-				<item name="quadAState" type="renderstate">
+				<item name="minifiedRS" type="renderstate">
 					<blend>true</blend>
 					<alpha2coverage>false</alpha2coverage>
 					<colorsrcfactor>Source Alpha</colorsrcfactor>
@@ -40,7 +40,66 @@
 					<depthfrontfail>Keep</depthfrontfail>
 					<depthbackfail>Keep</depthbackfail>
 				</item>
-				<item name="quadA" type="geometry">
+				<item name="miniChars" type="geometry">
+					<type>Plane</type>
+					<width>1</width>
+					<height>1</height>
+					<depth>1</depth>
+					<scaleX>0.150000006</scaleX>
+					<scaleY>0.150000006</scaleY>
+					<x>-0.465421677</x>
+					<y>1.1385498</y>
+					<topology>TriangleList</topology>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float4x4" name="viewProj" system="ViewProjection" />
+				<variable type="float4x4" name="transform" system="GeometryTransform" />
+				<variable type="float" name="time" system="Time" />
+			</variables>
+			<macros />
+		</pass>
+		<pass name="outlining" type="shader" active="true" patchverts="1" collapsed="true">
+			<shader type="vs" path="shaders\thickness_outlining.vert" entry="main" />
+			<shader type="ps" path="shaders\thickness_outlining.frag" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="outliningRS" type="renderstate">
+					<blend>true</blend>
+					<alpha2coverage>false</alpha2coverage>
+					<colorsrcfactor>Source Alpha</colorsrcfactor>
+					<colordstfactor>Inverse Source Alpha</colordstfactor>
+					<colorfunc>Add</colorfunc>
+					<alphasrcfactor>Source Alpha</alphasrcfactor>
+					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
+					<alphafunc>Add</alphafunc>
+					<blendfactor_r>1</blendfactor_r>
+					<blendfactor_g>1</blendfactor_g>
+					<blendfactor_b>1</blendfactor_b>
+					<blendfactor_a>1</blendfactor_a>
+					<depthtest>true</depthtest>
+					<depthclamp>true</depthclamp>
+					<depthmask>true</depthmask>
+					<depthfunc>Less</depthfunc>
+					<depthbias>0</depthbias>
+					<stenciltest>false</stenciltest>
+					<stencilmask>0</stencilmask>
+					<stencilref>255</stencilref>
+					<stencilfrontfunc>Equal</stencilfrontfunc>
+					<stencilbackfunc>Equal</stencilbackfunc>
+					<stencilfrontpass>Keep</stencilfrontpass>
+					<stencilbackpass>Keep</stencilbackpass>
+					<stencilfrontfail>Keep</stencilfrontfail>
+					<stencilbackfail>Keep</stencilbackfail>
+					<depthfrontfail>Keep</depthfrontfail>
+					<depthbackfail>Keep</depthbackfail>
+				</item>
+				<item name="outlineA" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
@@ -56,7 +115,7 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="basic" type="shader" active="true" patchverts="1">
+		<pass name="basic" type="shader" active="true" patchverts="1" collapsed="true">
 			<shader type="vs" path="shaders\basic.vert" entry="main" />
 			<shader type="ps" path="shaders\basic.frag" entry="main" />
 			<inputlayout>
@@ -96,7 +155,7 @@
 					<depthfrontfail>Keep</depthfrontfail>
 					<depthbackfail>Keep</depthbackfail>
 				</item>
-				<item name="charB" type="geometry">
+				<item name="basicB" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
@@ -105,7 +164,7 @@
 					<y>2.91277909</y>
 					<topology>TriangleList</topology>
 				</item>
-				<item name="charA" type="geometry">
+				<item name="basicA" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
@@ -114,7 +173,7 @@
 					<y>2.92180562</y>
 					<topology>TriangleList</topology>
 				</item>
-				<item name="charS" type="geometry">
+				<item name="basicS" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
@@ -123,7 +182,7 @@
 					<y>2.95117331</y>
 					<topology>TriangleList</topology>
 				</item>
-				<item name="charI" type="geometry">
+				<item name="basicI" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
@@ -132,7 +191,7 @@
 					<y>2.935992</y>
 					<topology>TriangleList</topology>
 				</item>
-				<item name="charC" type="geometry">
+				<item name="basicC" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
@@ -143,27 +202,27 @@
 				</item>
 			</items>
 			<itemvalues>
-				<value variable="textureIndex" for="charB">
+				<value variable="textureIndex" for="basicB">
 					<row>
 						<value>0</value>
 					</row>
 				</value>
-				<value variable="textureIndex" for="charA">
+				<value variable="textureIndex" for="basicA">
 					<row>
 						<value>1</value>
 					</row>
 				</value>
-				<value variable="textureIndex" for="charS">
+				<value variable="textureIndex" for="basicS">
 					<row>
 						<value>2</value>
 					</row>
 				</value>
-				<value variable="textureIndex" for="charI">
+				<value variable="textureIndex" for="basicI">
 					<row>
 						<value>3</value>
 					</row>
 				</value>
-				<value variable="textureIndex" for="charC">
+				<value variable="textureIndex" for="basicC">
 					<row>
 						<value>4</value>
 					</row>
@@ -198,15 +257,24 @@
 		<object type="texture" path="assets\S_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="4" name="basic" />
 		</object>
+		<object type="texture" path="assets\i__letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
+			<bind slot="1" name="minified" />
+		</object>
+		<object type="texture" path="assets\m_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
+			<bind slot="0" name="minified" />
+		</object>
+		<object type="texture" path="assets\n_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
+			<bind slot="2" name="minified" />
+		</object>
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="file" name="outlining" shader="vs" />
-		<entry type="file" name="outlining" shader="ps" />
+		<entry type="file" name="minified" shader="vs" />
+		<entry type="file" name="minified" shader="ps" />
 		<entry type="camera" fp="false">
 			<distance>12</distance>
-			<pitch>5</pitch>
-			<yaw>4</yaw>
+			<pitch>8</pitch>
+			<yaw>359</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />

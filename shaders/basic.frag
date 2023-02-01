@@ -49,7 +49,7 @@ void main() {
 			break;
 		default:
 			break;
-	};
+	}
 	float dist = median(texel.r, texel.g, texel.b);
 	
   	float pxDist = pxRange * (dist - 0.5);

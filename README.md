@@ -43,7 +43,7 @@ void main() {
 }
 ```
 
-## Features
+## Content
 
 In the shaders, you can find examples of:
 
