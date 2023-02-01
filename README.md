@@ -54,7 +54,7 @@ In the shaders, you can find examples of:
 - custom colored text drop shadow, 
 - gamma correction
 
-### Repo creation motive
+### What's the motive?
 
 There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the very rare findings on this topic on the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. Accordingly, I want to fill this repo with as much information and code examples (basic to advanced) as possible.
 
