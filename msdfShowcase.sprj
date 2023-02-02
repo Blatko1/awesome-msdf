@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project version="2">
 	<pipeline>
-		<pass name="minified" type="shader" active="true" patchverts="1">
+		<pass name="minified" type="shader" active="true" patchverts="1" collapsed="true">
 			<shader type="vs" path="shaders\minified.vert" entry="main" />
 			<shader type="ps" path="shaders\minified.frag" entry="main" />
 			<inputlayout>
@@ -57,61 +57,6 @@
 				<variable type="float4x4" name="viewProj" system="ViewProjection" />
 				<variable type="float4x4" name="transform" system="GeometryTransform" />
 				<variable type="float" name="time" system="Time" />
-			</variables>
-			<macros />
-		</pass>
-		<pass name="outlining" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\thickness_outlining.vert" entry="main" />
-			<shader type="ps" path="shaders\thickness_outlining.frag" entry="main" />
-			<inputlayout>
-				<item value="Position" semantic="POSITION" />
-				<item value="Texcoord" semantic="TEXCOORD0" />
-			</inputlayout>
-			<rendertexture />
-			<items>
-				<item name="outliningRS" type="renderstate">
-					<blend>true</blend>
-					<alpha2coverage>false</alpha2coverage>
-					<colorsrcfactor>Source Alpha</colorsrcfactor>
-					<colordstfactor>Inverse Source Alpha</colordstfactor>
-					<colorfunc>Add</colorfunc>
-					<alphasrcfactor>Source Alpha</alphasrcfactor>
-					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
-					<alphafunc>Add</alphafunc>
-					<blendfactor_r>1</blendfactor_r>
-					<blendfactor_g>1</blendfactor_g>
-					<blendfactor_b>1</blendfactor_b>
-					<blendfactor_a>1</blendfactor_a>
-					<depthtest>true</depthtest>
-					<depthclamp>true</depthclamp>
-					<depthmask>true</depthmask>
-					<depthfunc>Less</depthfunc>
-					<depthbias>0</depthbias>
-					<stenciltest>false</stenciltest>
-					<stencilmask>0</stencilmask>
-					<stencilref>255</stencilref>
-					<stencilfrontfunc>Equal</stencilfrontfunc>
-					<stencilbackfunc>Equal</stencilbackfunc>
-					<stencilfrontpass>Keep</stencilfrontpass>
-					<stencilbackpass>Keep</stencilbackpass>
-					<stencilfrontfail>Keep</stencilfrontfail>
-					<stencilbackfail>Keep</stencilbackfail>
-					<depthfrontfail>Keep</depthfrontfail>
-					<depthbackfail>Keep</depthbackfail>
-				</item>
-				<item name="outlineA" type="geometry">
-					<type>Plane</type>
-					<width>1</width>
-					<height>1</height>
-					<depth>1</depth>
-					<x>1.23688984</x>
-					<topology>TriangleList</topology>
-				</item>
-			</items>
-			<itemvalues />
-			<variables>
-				<variable type="float4x4" name="viewProj" system="ViewProjection" />
-				<variable type="float4x4" name="transform" system="GeometryTransform" />
 			</variables>
 			<macros />
 		</pass>
@@ -239,11 +184,126 @@
 			</variables>
 			<macros />
 		</pass>
+		<pass name="outlining" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\thickness_outlining.vert" entry="main" />
+			<shader type="ps" path="shaders\thickness_outlining.frag" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="outliningRS" type="renderstate">
+					<blend>true</blend>
+					<alpha2coverage>false</alpha2coverage>
+					<colorsrcfactor>Source Alpha</colorsrcfactor>
+					<colordstfactor>Inverse Source Alpha</colordstfactor>
+					<colorfunc>Add</colorfunc>
+					<alphasrcfactor>Source Alpha</alphasrcfactor>
+					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
+					<alphafunc>Add</alphafunc>
+					<blendfactor_r>1</blendfactor_r>
+					<blendfactor_g>1</blendfactor_g>
+					<blendfactor_b>1</blendfactor_b>
+					<blendfactor_a>1</blendfactor_a>
+					<depthtest>true</depthtest>
+					<depthclamp>true</depthclamp>
+					<depthmask>true</depthmask>
+					<depthfunc>Less</depthfunc>
+					<depthbias>0</depthbias>
+					<stenciltest>false</stenciltest>
+					<stencilmask>0</stencilmask>
+					<stencilref>255</stencilref>
+					<stencilfrontfunc>Equal</stencilfrontfunc>
+					<stencilbackfunc>Equal</stencilbackfunc>
+					<stencilfrontpass>Keep</stencilfrontpass>
+					<stencilbackpass>Keep</stencilbackpass>
+					<stencilfrontfail>Keep</stencilfrontfail>
+					<stencilbackfail>Keep</stencilbackfail>
+					<depthfrontfail>Keep</depthfrontfail>
+					<depthbackfail>Keep</depthbackfail>
+				</item>
+				<item name="outlineChar" type="geometry">
+					<type>Plane</type>
+					<width>1</width>
+					<height>1</height>
+					<depth>1</depth>
+					<scaleX>0.209999993</scaleX>
+					<scaleY>0.209999993</scaleY>
+					<x>0.175513208</x>
+					<topology>TriangleList</topology>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float4x4" name="viewProj" system="ViewProjection" />
+				<variable type="float4x4" name="transform" system="GeometryTransform" />
+			</variables>
+			<macros />
+		</pass>
+		<pass name="alternateOutlining" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\alternateOutliningVS.glsl" entry="main" />
+			<shader type="ps" path="shaders\alternateOutliningPS.glsl" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="alternateOutliningRS" type="renderstate">
+					<blend>true</blend>
+					<alpha2coverage>false</alpha2coverage>
+					<colorsrcfactor>Source Alpha</colorsrcfactor>
+					<colordstfactor>Inverse Source Alpha</colordstfactor>
+					<colorfunc>Add</colorfunc>
+					<alphasrcfactor>Source Alpha</alphasrcfactor>
+					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
+					<alphafunc>Add</alphafunc>
+					<blendfactor_r>1</blendfactor_r>
+					<blendfactor_g>1</blendfactor_g>
+					<blendfactor_b>1</blendfactor_b>
+					<blendfactor_a>1</blendfactor_a>
+					<depthtest>true</depthtest>
+					<depthclamp>true</depthclamp>
+					<depthmask>true</depthmask>
+					<depthfunc>Less</depthfunc>
+					<depthbias>0</depthbias>
+					<stenciltest>false</stenciltest>
+					<stencilmask>0</stencilmask>
+					<stencilref>255</stencilref>
+					<stencilfrontfunc>Equal</stencilfrontfunc>
+					<stencilbackfunc>Equal</stencilbackfunc>
+					<stencilfrontpass>Keep</stencilfrontpass>
+					<stencilbackpass>Keep</stencilbackpass>
+					<stencilfrontfail>Keep</stencilfrontfail>
+					<stencilbackfail>Keep</stencilbackfail>
+					<depthfrontfail>Keep</depthfrontfail>
+					<depthbackfail>Keep</depthbackfail>
+				</item>
+				<item name="altOutlineChar" type="geometry">
+					<type>Plane</type>
+					<width>1</width>
+					<height>1</height>
+					<depth>1</depth>
+					<scaleX>0.200000003</scaleX>
+					<scaleY>0.200000003</scaleY>
+					<x>-0.613663912</x>
+					<topology>TriangleList</topology>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float4x4" name="viewProj" system="ViewProjection" />
+				<variable type="float4x4" name="transform" system="GeometryTransform" />
+			</variables>
+			<macros />
+		</pass>
 	</pipeline>
 	<objects>
 		<object type="texture" path="assets\A_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
-			<bind slot="0" name="outlining" />
 			<bind slot="1" name="basic" />
+			<bind slot="0" name="outlining" />
+			<bind slot="0" name="alternateOutlining" />
 		</object>
 		<object type="texture" path="assets\B_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="0" name="basic" />
@@ -266,14 +326,20 @@
 		<object type="texture" path="assets\n_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="2" name="minified" />
 		</object>
+		<object type="texture" path="assets\e_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge" />
+		<object type="texture" path="assets\u_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge" />
+		<object type="texture" path="assets\L_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge" />
+		<object type="texture" path="assets\o_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="Repeat" wrap_t="Repeat" />
+		<object type="texture" path="assets\t_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge" />
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="minified" item="pipe" />
+		<entry type="file" name="alternateOutlining" shader="ps" />
+		<entry type="file" name="outlining" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>12</distance>
-			<pitch>8</pitch>
-			<yaw>359</yaw>
+			<distance>11</distance>
+			<pitch>0</pitch>
+			<yaw>357</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />

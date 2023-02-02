@@ -72,6 +72,8 @@ Here are a few useful tips regarding MSDFs:
 
 - My preference when generating MSDF textures regarding the **distance field pixel range** is **setting it to 6**. However, putting it higher will make no difference and setting it too high will create strange artefacts when rendering.
 
+- MSDF texture **magnify filter** (MagFilter) should be **set to linear** and not nearest, where in that case distance fields won't work.
+
 ### The repo motive
 
 There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the very rare findings on this topic over the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. I want to fill this repo with as much information and code examples (basic to advanced) as possible so other people don't have to search aimlessly.
