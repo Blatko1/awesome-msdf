@@ -2,8 +2,8 @@
 <project version="2">
 	<pipeline>
 		<pass name="minified" type="shader" active="true" patchverts="1">
-			<shader type="vs" path="shaders\minifiedVS.glsl" entry="main" />
-			<shader type="ps" path="shaders\minifiedPS.glsl" entry="main" />
+			<shader type="vs" path="shaders\minified.vert" entry="main" />
+			<shader type="ps" path="shaders\minified.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
 				<item value="Texcoord" semantic="TEXCOORD0" />
@@ -269,8 +269,7 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="file" name="minified" shader="vs" />
-		<entry type="file" name="minified" shader="ps" />
+		<entry type="property" name="minified" item="pipe" />
 		<entry type="camera" fp="false">
 			<distance>12</distance>
 			<pitch>8</pitch>
