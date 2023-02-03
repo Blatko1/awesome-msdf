@@ -3,7 +3,6 @@
 uniform sampler2D msdf;
 
 in vec2 uvCoord;
-in vec2 viewport;
 
 float median(float r, float g, float b) {
 	return max(min(r, g), min(max(r, g), b));
@@ -28,13 +27,12 @@ void main() {
 		discard;
 	}
 	float pxRange = screenPxRange();
-	dist -= 0.5 + thickness;
+	dist -= 0.5 - thickness;
 	//float maxPxDist = pxRange/2;
 	//float thicknessFactor = maxPxDist * thicknessFactor;
 	
-  	float bodyPxDist = pxRange * dist;
   	//float bodyOpacity = clamp(bodyPxDist, 0, 1);
-  	
+  	float bodyPxDist = pxRange * dist;
   	// Since we have pxDist representing distance in screen
   	// pixels, we can smoothstep between the two closest pixels
   	// to the character border (0.5 to the inside and outside).
@@ -42,7 +40,6 @@ void main() {
 
 	float charPxDist = pxRange * (dist + outlineThickness);
 	float charOpacity = smoothstep(-0.5, 0.5, charPxDist);
-
 	//float charOpacity = clamp(charPxDist + borderDist - outlineThickness, 0.0, 1.0);
 	
 	float outlineOpacity = charOpacity - bodyOpacity;

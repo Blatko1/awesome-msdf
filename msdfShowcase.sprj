@@ -228,9 +228,9 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<scaleX>0.200000003</scaleX>
-					<scaleY>0.200000003</scaleY>
-					<x>-0.613663912</x>
+					<scaleX>0.270000011</scaleX>
+					<scaleY>0.270000011</scaleY>
+					<x>-0.54844296</x>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -285,11 +285,10 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<scaleX>0.209999993</scaleX>
-					<scaleY>0.209999993</scaleY>
-					<x>0.0633768737</x>
+					<scaleX>1.39999998</scaleX>
+					<scaleY>1.39999998</scaleY>
+					<x>0.891000509</x>
 					<y>-0.0514762104</y>
-					<z>-1.74309587</z>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -297,7 +296,6 @@
 			<variables>
 				<variable type="float4x4" name="viewProj" system="ViewProjection" />
 				<variable type="float4x4" name="transform" system="GeometryTransform" />
-				<variable type="float2" name="port" system="ViewportSize" />
 			</variables>
 			<macros />
 		</pass>
@@ -378,17 +376,16 @@
 		<object type="texture" path="assets\o_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="Repeat" wrap_t="Repeat" />
 		<object type="texture" path="assets\t_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge" />
 		<object type="texture" path="assets\A_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
+			<bind slot="4" name="basic" />
 			<bind slot="0" name="outlining" />
 		</object>
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="file" name="outlining" shader="vs" />
-		<entry type="file" name="outlining" shader="ps" />
-		<entry type="pinned" name="port" owner="thickness" />
+		<entry type="property" name="minified" item="pipe" />
 		<entry type="pinned" name="transform" owner="thickness" />
 		<entry type="camera" fp="false">
-			<distance>5</distance>
+			<distance>3</distance>
 			<pitch>-1</pitch>
 			<yaw>356</yaw>
 			<roll>360</roll>

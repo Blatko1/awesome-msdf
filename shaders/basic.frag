@@ -1,10 +1,10 @@
 #version 330
 
 uniform sampler2D charB;
-uniform sampler2D charA;
 uniform sampler2D charC;
 uniform sampler2D charI;
 uniform sampler2D charS;
+uniform sampler2D charA;
 
 in vec2 uvCoord;
 flat in int texIndex;

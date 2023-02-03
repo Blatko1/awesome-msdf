@@ -10,7 +10,9 @@ For *2D rendering*, you are better off using a rasterizer since there are no con
 
 **Remember to not** generate every single character texture separately as in this showcase. Instead create a texture atlas with [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen) utility which also outputs a *arfont* file containing all character atlas positions, kerning info, space between characters, etc.
 
-## Shader output in *real-time*
+## Shaders and the output in *real-time*
+
+Search in the [shaders](./shaders) folder for another *README* for some shader explanations.
 
 To see how the shaders work in real-time, you can download the [**SHADERed**](https://github.com/dfranx/SHADERed/releases) desktop application, open the ***'.sprj'*** file from the repo with the *SHADERed app* and see the output on the canvas. Learn more about *SHADERed* on their official [Tutorial website](https://shadered.org/docs/tutorials.html) or by watching [Youtube tutorials](https://www.youtube.com/playlist?list=PLK0EO-cKorzRAEfwHoJFiIldiyiyDR3-2).
 

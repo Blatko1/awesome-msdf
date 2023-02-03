@@ -18,20 +18,23 @@ float screenPxRange() {
 const vec4 fgColor = vec4(0.2, 0.3, 0.4, 1.0);
 const vec4 outlineColor = vec4(0.5, 0.4, 0.3, 1.0);
 
-float thickness = 0.0; // Range: -0.4 < thickness < 0.4
-float outlineThickness = 0.4; // Range: 0.0 < outlineThickness < 0.4
+float thickness = 0.2; // Range: -0.3 < thickness < 0.3
+float outlineThickness = 0.6; // Range: 0.0 < outlineThickness < 0.4
 
 void main() {
 	vec4 texel = texture(msdf, uvCoord);
-	float borderDist = 0.5 - thickness;
-	float dist = median(texel.r, texel.g, texel.b) - borderDist;
+	float dist = median(texel.r, texel.g, texel.b);
+	if (dist <= 0.0001) {
+		discard;
+	}
 	float pxRange = screenPxRange();
+	dist -= 0.5 - thickness;
 	
   	float charPxDist = pxRange * dist;
-	float charOpacity = clamp(charPxDist + borderDist, 0.0, 1.0);
+	float charOpacity = smoothstep(-0.5, 0.5, charPxDist);
 	
 	float bodyPxDist = pxRange * (dist - outlineThickness);
-	float bodyOpacity = clamp(bodyPxDist + borderDist + outlineThickness, 0.0, 1.0);
+	float bodyOpacity = smoothstep(-0.5, 0.5, bodyPxDist);
 	
 	float outlineOpacity = charOpacity - bodyOpacity;
 	
