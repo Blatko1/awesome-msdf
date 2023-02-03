@@ -301,6 +301,54 @@
 			</variables>
 			<macros />
 		</pass>
+		<pass name="thickness" type="shader" active="false" patchverts="1">
+			<shader type="vs" path="shaders\thicknessVS.glsl" entry="main" />
+			<shader type="ps" path="shaders\thicknessPS.glsl" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Normal" semantic="NORMAL" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items />
+			<itemvalues />
+			<variables>
+				<variable type="float2" name="port">
+					<row>
+						<value>0</value>
+						<value>0</value>
+					</row>
+				</variable>
+				<variable type="float4x4" name="viewProj" system="ViewProjection" />
+				<variable type="float4x4" name="transform">
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+				</variable>
+			</variables>
+			<macros />
+		</pass>
 	</pipeline>
 	<objects>
 		<object type="texture" path="assets\B_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
@@ -335,9 +383,12 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="outlining" item="pipe" />
+		<entry type="file" name="outlining" shader="vs" />
+		<entry type="file" name="outlining" shader="ps" />
+		<entry type="pinned" name="port" owner="thickness" />
+		<entry type="pinned" name="transform" owner="thickness" />
 		<entry type="camera" fp="false">
-			<distance>4</distance>
+			<distance>5</distance>
 			<pitch>-1</pitch>
 			<yaw>356</yaw>
 			<roll>360</roll>

@@ -60,6 +60,8 @@ In the shaders, you can find examples of:
 
 Here are a few useful tips regarding MSDFs:
 
+- **IMPORTNANT:** Result of `screenPxRange()` function in *fragment* shaders must never be lower than 1. If it is lower than 2, there is a high probability that the anti-aliasing will fail. Also, if it is lower than 2, color can start spreading over the whole character quad and to fix it add a condition where shader gets **discarded** if the known *distance* is 0.
+
 - Do **not** use mipmaps. When text is minified mipmaps will break anti-aliasing.
 
 - **Supersampling** helps with anitaliasing but reduces performance and FPS.
@@ -73,8 +75,6 @@ Here are a few useful tips regarding MSDFs:
 - My preference when generating MSDF textures regarding the **distance field pixel range** is **setting it to 6**. However, putting it higher will make no difference and setting it too high will create strange artefacts when rendering.
 
 - MSDF texture **magnify filter** (MagFilter) should be **set to linear** and not nearest, where in that case distance fields won't work.
-
-- **IMPORTNANT:** Result of `screenPxRange()` function in *fragment* shaders must never be lower than 1. If it is lower than 2, there is a high probability that the anti-aliasing will fail. If color starts spreading over the whole character quad add a condition where shader gets **discarded** if the known *distance* is 0.
 
 ### The repo motive
 
