@@ -74,6 +74,8 @@ Here are a few useful tips regarding MSDFs:
 
 - MSDF texture **magnify filter** (MagFilter) should be **set to linear** and not nearest, where in that case distance fields won't work.
 
+- **IMPORTNANT:** Result of `screenPxRange()` function in *fragment* shaders must never be lower than 1. If it is lower than 2, there is a high probability that the anti-aliasing will fail. If color starts spreading over the whole character quad add a condition where shader gets **discarded** if the known *distance* is 0.
+
 ### The repo motive
 
 There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the very rare findings on this topic over the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. I want to fill this repo with as much information and code examples (basic to advanced) as possible so other people don't have to search aimlessly.
