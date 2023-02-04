@@ -114,7 +114,7 @@ Here you can find links to all the sources that helped me learn about MSDF and c
 
 #### Helpful code snippets
 
-- [leochocolat/three-msdf-text-utils · GitHub](https://github.com/leochocolat/three-msdf-text-utils/tree/main/src/MSDFTextMaterial/shaderChunks)
+- [leochocolat/three-msdf-text-utils · GitHub](https://github.com/leochocolat/three-msdf-text-utils/tree/main/src/MSDFTextMaterial/shaders)
 - [suikki/sdf_text_sample · GitHub](https://github.com/suikki/sdf_text_sample/tree/master/assets/shaders)
 - [Evolut-Group-Pty-Ltd/Lavo-2.0 · GitHub](https://github.com/Evolut-Group-Pty-Ltd/Lavo-2.0/blob/main/src/scene/components/Text/frag.glsl)
 - [wassy310/MJ_Simulator · GitHub](https://github.com/wassy310/MJ_Simulator/blob/master/MJ_simulator/App/engine/shader/glsl/msdffont_outlineshadow.frag)
