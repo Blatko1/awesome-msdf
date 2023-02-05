@@ -230,7 +230,7 @@
 					<depth>1</depth>
 					<scaleX>1.39999998</scaleX>
 					<scaleY>1.39999998</scaleY>
-					<x>0.903269172</x>
+					<x>0.0792844296</x>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -288,7 +288,8 @@
 					<depth>1</depth>
 					<scaleX>1.39999998</scaleX>
 					<scaleY>1.39999998</scaleY>
-					<x>-0.54844296</x>
+					<x>-1.29532182</x>
+					<y>-0.0358328819</y>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -305,46 +306,57 @@
 			<shader type="ps" path="shaders\thickness.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
-				<item value="Normal" semantic="NORMAL" />
 				<item value="Texcoord" semantic="TEXCOORD0" />
 			</inputlayout>
 			<rendertexture />
-			<items />
+			<items>
+				<item name="thicknessRS" type="renderstate">
+					<blend>true</blend>
+					<alpha2coverage>false</alpha2coverage>
+					<colorsrcfactor>Source Alpha</colorsrcfactor>
+					<colordstfactor>Inverse Source Alpha</colordstfactor>
+					<colorfunc>Add</colorfunc>
+					<alphasrcfactor>Source Alpha</alphasrcfactor>
+					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
+					<alphafunc>Add</alphafunc>
+					<blendfactor_r>1</blendfactor_r>
+					<blendfactor_g>1</blendfactor_g>
+					<blendfactor_b>1</blendfactor_b>
+					<blendfactor_a>1</blendfactor_a>
+					<depthtest>true</depthtest>
+					<depthclamp>true</depthclamp>
+					<depthmask>true</depthmask>
+					<depthfunc>Less</depthfunc>
+					<depthbias>0</depthbias>
+					<stenciltest>false</stenciltest>
+					<stencilmask>0</stencilmask>
+					<stencilref>255</stencilref>
+					<stencilfrontfunc>Equal</stencilfrontfunc>
+					<stencilbackfunc>Equal</stencilbackfunc>
+					<stencilfrontpass>Keep</stencilfrontpass>
+					<stencilbackpass>Keep</stencilbackpass>
+					<stencilfrontfail>Keep</stencilfrontfail>
+					<stencilbackfail>Keep</stencilbackfail>
+					<depthfrontfail>Keep</depthfrontfail>
+					<depthbackfail>Keep</depthbackfail>
+				</item>
+				<item name="thicknessChar" type="geometry">
+					<type>Plane</type>
+					<width>1</width>
+					<height>1</height>
+					<depth>1</depth>
+					<scaleX>1.5</scaleX>
+					<scaleY>1.5</scaleY>
+					<x>1.46128976</x>
+					<y>-0.0837275386</y>
+					<topology>TriangleList</topology>
+				</item>
+			</items>
 			<itemvalues />
 			<variables>
-				<variable type="float2" name="port">
-					<row>
-						<value>0</value>
-						<value>0</value>
-					</row>
-				</variable>
 				<variable type="float4x4" name="viewProj" system="ViewProjection" />
-				<variable type="float4x4" name="transform">
-					<row>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-					</row>
-					<row>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-					</row>
-					<row>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-					</row>
-					<row>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-						<value>0</value>
-					</row>
-				</variable>
+				<variable type="float4x4" name="transform" system="GeometryTransform" />
+				<variable type="float" name="time" system="Time" />
 			</variables>
 			<macros />
 		</pass>
@@ -367,6 +379,7 @@
 		</object>
 		<object type="texture" path="assets\m_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="0" name="minified" />
+			<bind slot="0" name="thickness" />
 		</object>
 		<object type="texture" path="assets\n_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="2" name="minified" />
@@ -379,18 +392,17 @@
 		<object type="texture" path="assets\A_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="4" name="basic" />
 			<bind slot="0" name="outlining" />
+			<bind slot="0" name="alternateOutlining" />
 		</object>
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="outlining" item="pipe" />
-		<entry type="file" name="alternateOutlining" shader="vs" />
-		<entry type="file" name="alternateOutlining" shader="ps" />
-		<entry type="pinned" name="transform" owner="thickness" />
+		<entry type="file" name="thickness" shader="vs" />
+		<entry type="file" name="thickness" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>6</distance>
-			<pitch>-2</pitch>
-			<yaw>4</yaw>
+			<distance>7</distance>
+			<pitch>1</pitch>
+			<yaw>354</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />
