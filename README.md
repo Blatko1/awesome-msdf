@@ -78,10 +78,6 @@ Here are a few valuable tips regarding MSDFs:
 
 - MSDF texture **magnify filter** (MagFilter) should be **set to linear** and not nearest, where distance fields won't work in that case.
 
-### The repo motive
-
-There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the rare findings on this topic over the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. I want to fill this repo with as much information and code examples (basic to advanced) as possible, so other people don't have to search aimlessly.
-
 ## Sources, links, articles, discussions, more info
 
 Below, you you can find links to all the sources that helped me learn about MSDF and create the showcase.
@@ -128,6 +124,12 @@ Below, you you can find links to all the sources that helped me learn about MSDF
 - [jinleili/sdf-text-view](https://github.com/jinleili/sdf-text-view/tree/master/shader-wgsl) - shaders are made with the *wgsl* lang,
 - [TinySDF demo](https://mapbox.github.io/tiny-sdf/),
 
-## Contributing
+### The repo motive
+
+There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the rare findings on this topic over the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. I want to fill this repo with as much information and code examples (basic to advanced) as possible, so other people don't have to search aimlessly.
+
+### Contributing and questions
 
 All contributions, such as fixing grammar, adding new sources and improving shader code, are welcome.
+
+If you have questions about the topic feel free to post them in the [discussions section](https://github.com/Blatko1/MSDF-showcase/discussions).
