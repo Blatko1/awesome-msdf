@@ -1,11 +1,14 @@
 #version 330
 
+#define CHANGE_SPEED 1.2
+#define CHAR_COUNT 4
+
 uniform sampler2D char_m;
 uniform sampler2D char_i;
 uniform sampler2D char_n;
+uniform float time;
 
 in vec2 uvCoord;
-flat in int texIndex;
 
 float median(float r, float g, float b) {
 	return max(min(r, g), min(max(r, g), b));
@@ -20,6 +23,7 @@ float screenPxRange(sampler2D tex) {
 void main() {
 	vec4 texel;
 	float pxRange;
+	int texIndex = int(time * CHANGE_SPEED) % CHAR_COUNT;
 	switch(texIndex) {
 		case 0:
 			texel = texture(char_m, uvCoord);

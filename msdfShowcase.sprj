@@ -1,65 +1,6 @@
 <?xml version="1.0"?>
 <project version="2">
 	<pipeline>
-		<pass name="minified" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\minified.vert" entry="main" />
-			<shader type="ps" path="shaders\minified.frag" entry="main" />
-			<inputlayout>
-				<item value="Position" semantic="POSITION" />
-				<item value="Texcoord" semantic="TEXCOORD0" />
-			</inputlayout>
-			<rendertexture />
-			<items>
-				<item name="minifiedRS" type="renderstate">
-					<blend>true</blend>
-					<alpha2coverage>false</alpha2coverage>
-					<colorsrcfactor>Source Alpha</colorsrcfactor>
-					<colordstfactor>Inverse Source Alpha</colordstfactor>
-					<colorfunc>Add</colorfunc>
-					<alphasrcfactor>Source Alpha</alphasrcfactor>
-					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
-					<alphafunc>Add</alphafunc>
-					<blendfactor_r>1</blendfactor_r>
-					<blendfactor_g>1</blendfactor_g>
-					<blendfactor_b>1</blendfactor_b>
-					<blendfactor_a>1</blendfactor_a>
-					<depthtest>true</depthtest>
-					<depthclamp>true</depthclamp>
-					<depthmask>true</depthmask>
-					<depthfunc>Less</depthfunc>
-					<depthbias>0</depthbias>
-					<stenciltest>false</stenciltest>
-					<stencilmask>0</stencilmask>
-					<stencilref>255</stencilref>
-					<stencilfrontfunc>Equal</stencilfrontfunc>
-					<stencilbackfunc>Equal</stencilbackfunc>
-					<stencilfrontpass>Keep</stencilfrontpass>
-					<stencilbackpass>Keep</stencilbackpass>
-					<stencilfrontfail>Keep</stencilfrontfail>
-					<stencilbackfail>Keep</stencilbackfail>
-					<depthfrontfail>Keep</depthfrontfail>
-					<depthbackfail>Keep</depthbackfail>
-				</item>
-				<item name="miniChars" type="geometry">
-					<type>Plane</type>
-					<width>1</width>
-					<height>1</height>
-					<depth>1</depth>
-					<scaleX>0.150000006</scaleX>
-					<scaleY>0.150000006</scaleY>
-					<x>-0.465421677</x>
-					<y>1.1385498</y>
-					<topology>TriangleList</topology>
-				</item>
-			</items>
-			<itemvalues />
-			<variables>
-				<variable type="float4x4" name="viewProj" system="ViewProjection" />
-				<variable type="float4x4" name="transform" system="GeometryTransform" />
-				<variable type="float" name="time" system="Time" />
-			</variables>
-			<macros />
-		</pass>
 		<pass name="basic" type="shader" active="true" patchverts="1" collapsed="true">
 			<shader type="vs" path="shaders\basic.vert" entry="main" />
 			<shader type="ps" path="shaders\basic.frag" entry="main" />
@@ -147,27 +88,27 @@
 				</item>
 			</items>
 			<itemvalues>
-				<value variable="textureIndex" for="basicB">
-					<row>
-						<value>0</value>
-					</row>
-				</value>
-				<value variable="textureIndex" for="basicA">
+				<value variable="texIndex" for="basicA">
 					<row>
 						<value>1</value>
 					</row>
 				</value>
-				<value variable="textureIndex" for="basicS">
+				<value variable="texIndex" for="basicS">
 					<row>
 						<value>2</value>
 					</row>
 				</value>
-				<value variable="textureIndex" for="basicI">
+				<value variable="texIndex" for="basicB">
+					<row>
+						<value>0</value>
+					</row>
+				</value>
+				<value variable="texIndex" for="basicI">
 					<row>
 						<value>3</value>
 					</row>
 				</value>
-				<value variable="textureIndex" for="basicC">
+				<value variable="texIndex" for="basicC">
 					<row>
 						<value>4</value>
 					</row>
@@ -176,7 +117,7 @@
 			<variables>
 				<variable type="float4x4" name="viewProj" system="ViewProjection" />
 				<variable type="float4x4" name="transform" system="GeometryTransform" />
-				<variable type="int" name="textureIndex">
+				<variable type="int" name="texIndex">
 					<row>
 						<value>0</value>
 					</row>
@@ -184,16 +125,16 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="alternateOutlining" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\alternateOutlining.vert" entry="main" />
-			<shader type="ps" path="shaders\alternateOutlining.frag" entry="main" />
+		<pass name="minified" type="shader" active="true" patchverts="1" collapsed="true">
+			<shader type="vs" path="shaders\minified.vert" entry="main" />
+			<shader type="ps" path="shaders\minified.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
 				<item value="Texcoord" semantic="TEXCOORD0" />
 			</inputlayout>
 			<rendertexture />
 			<items>
-				<item name="alternateOutliningRS" type="renderstate">
+				<item name="minifiedRS" type="renderstate">
 					<blend>true</blend>
 					<alpha2coverage>false</alpha2coverage>
 					<colorsrcfactor>Source Alpha</colorsrcfactor>
@@ -223,14 +164,15 @@
 					<depthfrontfail>Keep</depthfrontfail>
 					<depthbackfail>Keep</depthbackfail>
 				</item>
-				<item name="altOutlineChar" type="geometry">
+				<item name="miniChars" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<scaleX>0.270000011</scaleX>
-					<scaleY>0.270000011</scaleY>
-					<x>-0.54844296</x>
+					<scaleX>0.150000006</scaleX>
+					<scaleY>0.150000006</scaleY>
+					<x>-0.465421677</x>
+					<y>1.1385498</y>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -238,6 +180,7 @@
 			<variables>
 				<variable type="float4x4" name="viewProj" system="ViewProjection" />
 				<variable type="float4x4" name="transform" system="GeometryTransform" />
+				<variable type="float" name="time" system="Time" />
 			</variables>
 			<macros />
 		</pass>
@@ -287,8 +230,7 @@
 					<depth>1</depth>
 					<scaleX>1.39999998</scaleX>
 					<scaleY>1.39999998</scaleY>
-					<x>0.891000509</x>
-					<y>-0.0514762104</y>
+					<x>0.903269172</x>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -296,12 +238,71 @@
 			<variables>
 				<variable type="float4x4" name="viewProj" system="ViewProjection" />
 				<variable type="float4x4" name="transform" system="GeometryTransform" />
+				<variable type="float" name="time" system="Time" />
 			</variables>
 			<macros />
 		</pass>
-		<pass name="thickness" type="shader" active="false" patchverts="1">
-			<shader type="vs" path="shaders\thicknessVS.glsl" entry="main" />
-			<shader type="ps" path="shaders\thicknessPS.glsl" entry="main" />
+		<pass name="alternateOutlining" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\alternateOutlining.vert" entry="main" />
+			<shader type="ps" path="shaders\alternateOutlining.frag" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="alternateOutliningRS" type="renderstate">
+					<blend>true</blend>
+					<alpha2coverage>false</alpha2coverage>
+					<colorsrcfactor>Source Alpha</colorsrcfactor>
+					<colordstfactor>Inverse Source Alpha</colordstfactor>
+					<colorfunc>Add</colorfunc>
+					<alphasrcfactor>Source Alpha</alphasrcfactor>
+					<alphadstfactor>Inverse Source Alpha</alphadstfactor>
+					<alphafunc>Add</alphafunc>
+					<blendfactor_r>1</blendfactor_r>
+					<blendfactor_g>1</blendfactor_g>
+					<blendfactor_b>1</blendfactor_b>
+					<blendfactor_a>1</blendfactor_a>
+					<depthtest>true</depthtest>
+					<depthclamp>true</depthclamp>
+					<depthmask>true</depthmask>
+					<depthfunc>Less</depthfunc>
+					<depthbias>0</depthbias>
+					<stenciltest>false</stenciltest>
+					<stencilmask>0</stencilmask>
+					<stencilref>255</stencilref>
+					<stencilfrontfunc>Equal</stencilfrontfunc>
+					<stencilbackfunc>Equal</stencilbackfunc>
+					<stencilfrontpass>Keep</stencilfrontpass>
+					<stencilbackpass>Keep</stencilbackpass>
+					<stencilfrontfail>Keep</stencilfrontfail>
+					<stencilbackfail>Keep</stencilbackfail>
+					<depthfrontfail>Keep</depthfrontfail>
+					<depthbackfail>Keep</depthbackfail>
+				</item>
+				<item name="altOutlineChar" type="geometry">
+					<type>Plane</type>
+					<width>1</width>
+					<height>1</height>
+					<depth>1</depth>
+					<scaleX>1.39999998</scaleX>
+					<scaleY>1.39999998</scaleY>
+					<x>-0.54844296</x>
+					<topology>TriangleList</topology>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float4x4" name="viewProj" system="ViewProjection" />
+				<variable type="float4x4" name="transform" system="GeometryTransform" />
+				<variable type="float" name="time" system="Time" />
+			</variables>
+			<macros />
+		</pass>
+		<pass name="thickness" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\thickness.vert" entry="main" />
+			<shader type="ps" path="shaders\thickness.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
 				<item value="Normal" semantic="NORMAL" />
@@ -382,12 +383,14 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="minified" item="pipe" />
+		<entry type="property" name="outlining" item="pipe" />
+		<entry type="file" name="alternateOutlining" shader="vs" />
+		<entry type="file" name="alternateOutlining" shader="ps" />
 		<entry type="pinned" name="transform" owner="thickness" />
 		<entry type="camera" fp="false">
-			<distance>3</distance>
-			<pitch>-1</pitch>
-			<yaw>356</yaw>
+			<distance>6</distance>
+			<pitch>-2</pitch>
+			<yaw>4</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />

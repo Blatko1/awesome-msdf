@@ -5,9 +5,9 @@ uniform sampler2D charC;
 uniform sampler2D charI;
 uniform sampler2D charS;
 uniform sampler2D charA;
+uniform int texIndex;
 
 in vec2 uvCoord;
-flat in int texIndex;
 
 out vec4 outColor;
 
