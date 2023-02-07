@@ -121,7 +121,7 @@ Below, you you can find links to all the sources that helped me learn about MSDF
 - [maltaisn/msdf-gdx](https://github.com/maltaisn/msdf-gdx/blob/master/lib/src/main/resources/font.frag),
 - [MSDF Preview](https://gist.github.com/Chlumsky/263c960ae0a7df59afc2da4051eb0553),
 - [Cierpliwy/sdf-test](https://github.com/Cierpliwy/sdf-test),
-- [jinleili/sdf-text-view](https://github.com/jinleili/sdf-text-view/tree/master/shader-wgsl) - shaders are made with the *wgsl* lang,
+- [jinleili/sdf-text-view](https://github.com/jinleili/sdf-text-view/tree/master/shader-wgsl) - *wgsl* shaders,
 - [TinySDF demo](https://mapbox.github.io/tiny-sdf/),
 
 ### The repo motive
