@@ -22,9 +22,9 @@ const vec4 fgColor = vec4(0.41797, 0.480469, 0.54688, 1.0);
 const vec4 outline1Color = vec4(0.230469, 0.300781, 0.378906, 1.0);
 const vec4 outline2Color = vec4(0.972656, 0.816406, 0.05859, 1.0);
 
-float thickness = -0.4; // Range: -0.3 < thickness < 0.3
-//float outline1Thickness = 0.4; // Range: 0.0 < outlineThickness < 0.4
-//float outline2Thickness = 0.2; // Range: 0.0 < outlineThickness < 0.4
+float thickness = -0.3;
+//float outline1Thickness = 0.4;
+//float outline2Thickness = 0.2;
 float maxThickness = 0.4 - thickness;
 
 void main() {

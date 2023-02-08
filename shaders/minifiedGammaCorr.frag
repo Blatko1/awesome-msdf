@@ -20,6 +20,8 @@ float screenPxRange(sampler2D tex) {
 	return max(0.5*dot(unitRange, screenTexSize), 1.0);
 }
 
+const vec4 fgColor = vec4(0.4, 0.5, 0.6, 1.0);
+
 void main() {
 	vec4 texel;
 	float pxRange;
@@ -46,7 +48,11 @@ void main() {
 	}
 	float dist = median(texel.r, texel.g, texel.b);
 	float pxDist = pxRange * (dist - 0.5);
-	float alpha = clamp(pxDist + 0.5, 0.0, 1.0);
+	float opacity = clamp(pxDist + 0.5, 0.0, 1.0);
 	
-	gl_FragColor = vec4(1.0, 1.0, 1.0, alpha);
+	// Gamma correction:
+	float gamma = 2.2;
+	float alpha = pow(opacity, 1 / gamma);
+	
+	gl_FragColor = vec4(fgColor.rgb, alpha);
 }
