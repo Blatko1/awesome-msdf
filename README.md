@@ -29,7 +29,7 @@ In the shaders, you can find examples of:
 
 ## Basic MSDF usage
 
-The following snippet shows the basic usage of an MSDF texture (*distance field pixel range 4*) to render text while preserving the highest quality. For more info, check out this [explanation](https://github.com/Chlumsky/msdfgen#using-a-multi-channel-distance-field) from the msdfgen creator.
+The following snippet shows the basic usage of an MSDF texture (*distance field pixel range 6*) to render text while preserving the highest quality. For more info, check out this [explanation](https://github.com/Chlumsky/msdfgen#using-a-multi-channel-distance-field) from the msdfgen creator.
 
 ```glsl
 uniform sampler2D tex;
