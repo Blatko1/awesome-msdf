@@ -19,7 +19,7 @@ float screenPxRange() {
 
 const vec4 fgColor = vec4(0.7, 0.3, 0.4, 1.0);
 
-//float thicknessFactor = 0.1; // Range: -0.3 < thickness < 0.3
+//float thickness = 0.1; // Range: -0.3 < thickness < 0.3
 float maxThickness = 0.3;
 
 void main() {

@@ -2,7 +2,7 @@
 <project version="2">
 	<pipeline>
 		<pass name="basic" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\basic.vert" entry="main" />
+			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\basic.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
@@ -129,7 +129,7 @@
 			<macros />
 		</pass>
 		<pass name="minifiedGammaCorr" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\minifiedGammaCorr.vert" entry="main" />
+			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\minifiedGammaCorr.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
@@ -188,7 +188,7 @@
 			<macros />
 		</pass>
 		<pass name="outlining" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\outlining.vert" entry="main" />
+			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\outlining.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
@@ -246,7 +246,7 @@
 			<macros />
 		</pass>
 		<pass name="alternateOutlining" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\alternateOutlining.vert" entry="main" />
+			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\alternateOutlining.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
@@ -304,7 +304,7 @@
 			<macros />
 		</pass>
 		<pass name="thickness" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\thickness.vert" entry="main" />
+			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\thickness.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
@@ -363,7 +363,7 @@
 			<macros />
 		</pass>
 		<pass name="twoOutlines" type="shader" active="true" patchverts="1" collapsed="true">
-			<shader type="vs" path="shaders\twoOutlines.vert" entry="main" />
+			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\twoOutlines.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
@@ -422,7 +422,7 @@
 			<macros />
 		</pass>
 		<pass name="softness" type="shader" active="true" patchverts="1">
-			<shader type="vs" path="shaders\softness.vert" entry="main" />
+			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\softness.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />

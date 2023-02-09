@@ -21,7 +21,6 @@ const vec4 fgColor = vec4(0.2, 0.3, 0.4, 1.0);
 const vec4 outlineColor = vec4(0.6, 0.7, 0.3, 1.0);
 
 float thickness = 0.3;
-//float outlineThickness = 0.6;
 float maxThickness = 0.4 + thickness;
 
 void main() {
