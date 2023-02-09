@@ -55,6 +55,7 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
+					<roll>6.00655556</roll>
 					<x>2.08869886</x>
 					<y>2.92180562</y>
 					<topology>TriangleList</topology>
@@ -64,7 +65,8 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<x>1.05191147</x>
+					<roll>0.561972618</roll>
+					<x>0.94729495</x>
 					<y>2.95117331</y>
 					<topology>TriangleList</topology>
 				</item>
@@ -73,7 +75,8 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<x>0.0125300288</x>
+					<roll>0.397148997</roll>
+					<x>-0.158484265</x>
 					<y>2.935992</y>
 					<topology>TriangleList</topology>
 				</item>
@@ -82,7 +85,7 @@
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
-					<x>-0.970469713</x>
+					<x>-1.31863451</x>
 					<y>2.92746735</y>
 					<topology>TriangleList</topology>
 				</item>
@@ -171,7 +174,7 @@
 					<depth>1</depth>
 					<scaleX>0.150000006</scaleX>
 					<scaleY>0.150000006</scaleY>
-					<x>-0.979427218</x>
+					<x>-0.850056171</x>
 					<y>1.1385498</y>
 					<topology>TriangleList</topology>
 				</item>
@@ -466,7 +469,6 @@
 					<scaleY>1.39999998</scaleY>
 					<x>0.0717094541</x>
 					<y>1.20765865</y>
-					<z>-0.368703842</z>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -519,11 +521,10 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="softness" item="pipe" />
 		<entry type="camera" fp="false">
-			<distance>4</distance>
-			<pitch>0</pitch>
-			<yaw>359</yaw>
+			<distance>9</distance>
+			<pitch>2</pitch>
+			<yaw>0</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />
