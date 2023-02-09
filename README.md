@@ -10,22 +10,11 @@ For *2D rendering*, you are better off using a rasterizer since there are no con
 
 **Remember to** generate a texture atlas with [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen) utility and **not to** generate every character texture separately, as shown in this showcase. The utility can also output an *arfont* file containing all character atlas positions, kerning info, spaces between characters and more.
 
-## Shaders and the output in *real-time*
+## Shaders, tips and *real-time* output
 
-> Read through the README in the [shaders](./shaders) folder for more detailed shader explanations.
+> Read through the README in the [shaders](./shaders) folder for more detailed shader explanations and a few tips.
 
 To see how the shaders work in real-time, you can download the [**SHADERed**](https://github.com/dfranx/SHADERed/releases) desktop application, open the ***'.sprj'*** file from the repo with the *SHADERed app* and see the output on the canvas. Learn more about *SHADERed* on their official [Tutorial website](https://shadered.org/docs/tutorials.html) or by watching [Youtube tutorials](https://www.youtube.com/playlist?list=PLK0EO-cKorzRAEfwHoJFiIldiyiyDR3-2).
-
-## Content
-
-In the shaders, you can find examples of:
-
-- basic text rendering in 3D space with quality preservation while being *magnified*, *minified* or *rotated*,
-- modifying text thickness,
-- adding one or more colored outlines with custom thickness,
-- applying softness to the body or the outline,
-- custom colored drop shadow,
-- gamma correction
 
 ## Basic MSDF usage
 
@@ -58,31 +47,9 @@ void main() {
 }
 ```
 
-## MSDF tips
-
-Here are a few valuable tips regarding MSDFs:
-
-- **IMPORTANT:** The result of `screenPxRange()` function in *fragment* shaders must never be lower than 1. If it is lower than 2, there is a high probability that the anti-aliasing will fail. Also, if it is lower than 2, color can start spreading over the whole character quad, and to fix it, add a condition where the shader gets **discarded** if the known *distance* is 0.
-
-- Do **not** use mipmaps. When text is minified, mipmaps will break anti-aliasing.
-
-- **Supersampling** helps with anit-aliasing but reduces performance and FPS.
-
-- **Thicker fonts** can help with quality preservation when the text is downscaled.
-
-- **Gamma correction** also helps with quality preservation when the text is downscaled. 
-
-- **Higher dimensions** per character (32x32 or more) are desirable when generating the MSDF texture. This helps reduce the artefacts created while rendering *more complex and thinner fonts*. These artefacts are caused by the lack of detail on MSDF textures.
-
-- My preference when generating MSDF textures regarding the **distance field pixel range** is **setting it to 6**. However, putting it higher will make no difference and setting it too high will create strange artefacts when rendering.
-
-- MSDF texture **magnify filter** (MagFilter) should be **set to linear** and not nearest, where distance fields won't work in that case.
-
 ## Sources, links, articles, discussions, more info
 
 Below, you you can find links to all the sources that helped me learn about MSDF and create the showcase.
-
-> ⚠️ Constantly adding more! ⚠️
 
 #### Intro
 
