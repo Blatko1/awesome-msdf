@@ -26,7 +26,7 @@ const vec4 outlineColor = vec4(0.95, 0.4, 0.3, 1.0);
 float thickness = -0.3;
 float outlineThickness = 0.3;
 float softness = 0.2;
-float outlineSoftness = 0.1;
+float outlineSoftness = 0.5;
 
 void main() {
 	vec4 texel = texture(tex, uvCoord);

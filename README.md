@@ -90,6 +90,8 @@ Below, you you can find links to all the sources that helped me learn about MSDF
 - [Cierpliwy/sdf-test](https://github.com/Cierpliwy/sdf-test),
 - [jinleili/sdf-text-view](https://github.com/jinleili/sdf-text-view/tree/master/shader-wgsl) - *wgsl* shaders,
 - [TinySDF demo](https://mapbox.github.io/tiny-sdf/),
+- [ShoYamanishi/SDFont](https://github.com/ShoYamanishi/SDFont/blob/master/shaders/VanillaSignedDistFontFragment.glsl)
+- [MaxVell89/particles-animation](https://github.com/MaxVell89/particles-animation/blob/13f4bb7a3e41ad899f335b65092820291a28a694/src/js/modules/shader/msdf/fragment.glsl)
 
 ### The repo motive
 

@@ -468,7 +468,7 @@
 					<scaleX>1.39999998</scaleX>
 					<scaleY>1.39999998</scaleY>
 					<x>0.0717094541</x>
-					<y>1.20765865</y>
+					<y>1.24351656</y>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -521,8 +521,10 @@
 	</objects>
 	<cameras />
 	<settings>
+		<entry type="file" name="softness" shader="vs" />
+		<entry type="file" name="softness" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>9</distance>
+			<distance>6</distance>
 			<pitch>2</pitch>
 			<yaw>0</yaw>
 			<roll>360</roll>
