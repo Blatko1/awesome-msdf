@@ -1,4 +1,4 @@
-# *awesome* - **msdf**
+<h1 align="center"><i>awesome</i> - <b>msdf</b></h1>
 
 <p align="center"><img src="assets/showcase/showcase.gif" alt="Logo"></p>
 
