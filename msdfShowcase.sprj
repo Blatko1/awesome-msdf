@@ -47,7 +47,7 @@
 					<height>1</height>
 					<depth>1</depth>
 					<x>3.18185997</x>
-					<y>2.91277909</y>
+					<y>1.30728626</y>
 					<topology>TriangleList</topology>
 				</item>
 				<item name="basicA" type="geometry">
@@ -57,7 +57,7 @@
 					<depth>1</depth>
 					<roll>6.00655556</roll>
 					<x>2.08869886</x>
-					<y>2.92180562</y>
+					<y>1.65619516</y>
 					<topology>TriangleList</topology>
 				</item>
 				<item name="basicS" type="geometry">
@@ -67,7 +67,7 @@
 					<depth>1</depth>
 					<roll>0.561972618</roll>
 					<x>0.94729495</x>
-					<y>2.95117331</y>
+					<y>2.17231607</y>
 					<topology>TriangleList</topology>
 				</item>
 				<item name="basicI" type="geometry">
@@ -76,8 +76,8 @@
 					<height>1</height>
 					<depth>1</depth>
 					<roll>0.397148997</roll>
-					<x>-0.158484265</x>
-					<y>2.935992</y>
+					<x>-0.420240045</x>
+					<y>2.38469672</y>
 					<topology>TriangleList</topology>
 				</item>
 				<item name="basicC" type="geometry">
@@ -86,7 +86,7 @@
 					<height>1</height>
 					<depth>1</depth>
 					<x>-1.31863451</x>
-					<y>2.92746735</y>
+					<y>1.85319495</y>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -521,12 +521,10 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="file" name="softness" shader="vs" />
-		<entry type="file" name="softness" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>6</distance>
-			<pitch>2</pitch>
-			<yaw>0</yaw>
+			<distance>8</distance>
+			<pitch>5</pitch>
+			<yaw>1</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />
