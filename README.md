@@ -1,6 +1,6 @@
-# *awesome* - **msdf**
+<h1 align="center"><i>awesome</i> - <b>msdf</b></h1>
 
-<p style="text-align:center;"><img src="assets/showcase/showcase.gif" alt="Logo"></p>
+<p align="center"><img src="assets/showcase/showcase.gif" alt="Logo"></p>
 
 > ⚠️ This repo is still being developed, so you may not find some of the listed *features*. ⚠️
 
