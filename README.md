@@ -51,7 +51,7 @@ void main() {
 
 ## Sources, links, articles, discussions, more info
 
-Below, you can find links to all the sources that helped me learn about MSDF and create this repo.
+Below are links to all the sources that helped me learn about MSDF and create this repo.
 
 #### Intro
 
@@ -64,15 +64,15 @@ Below, you can find links to all the sources that helped me learn about MSDF and
 - [Glyphs, shapes, fonts, signed distance fields - YouTube](https://www.youtube.com/watch?v=1b5hIMqz_wM) - Short video explaining how to generate and use SDFs to render text or other 2D shapes.
 - [Drawing Text with Signed Distance Fields in Mapbox GL](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817) - This short article covers how SDFs work and the basic usage of SDFs for text rendering.
 
-#### Anti-aliasing SDF text
+#### Antialiasing SDF text
 
 - [Cinder-SdfText: Initial Release (WIP) - Cinder](https://discourse.libcinder.org/t/cinder-sdftext-initial-release-wip) - Interesting discussion about an SDF text renderer and improving the shader code to preserve the quality of minified SDF texts.
 - [Signed-distance-field fonts look crappy at small pt sizes - JVM Gaming](https://jvm-gaming.org/t/solved-signed-distance-field-fonts-look-crappy-at-small-pt-sizes/49617) - Another interesting discussion where preserving the quality of scaled SDF texts is the main topic.
-- [Antialiasing with a signed distance field - Musing Mortoray](https://mortoray.com/antialiasing-with-a-signed-distance-field/) - This article explains how to set up the shader code for true anti-aliasing correctly.
-- [Antialiasing For SDF Textures](https://drewcassidy.me/2020/06/26/sdf-antialiasing/) - An article which shows different ways of setting up the shader code for better anti-aliasing. Some parts are based on the explanations of the article above.
-- [Rendering Signed Distance Fields, Part 1 « Essential Math Weblog](http://www.essentialmath.com/blog/?p=111) - Part 1 of the blog explains the math behind the anti-aliasing of SDF text.
+- [Antialiasing with a signed distance field - Musing Mortoray](https://mortoray.com/antialiasing-with-a-signed-distance-field/) - This article explains how to set up the shader code for true antialiasing correctly.
+- [Antialiasing For SDF Textures](https://drewcassidy.me/2020/06/26/sdf-antialiasing/) - An article which shows different ways of setting up the shader code for better antialiasing. Some parts are based on the explanations of the article above.
+- [Rendering Signed Distance Fields, Part 1 « Essential Math Weblog](http://www.essentialmath.com/blog/?p=111) - Part 1 of the blog explains the math behind the antialiasing of SDF text.
 - [Rendering Signed Distance Fields, Part 2 « Essential Math Weblog](http://www.essentialmath.com/blog/?p=128) - Part 2 of the blog goes more in in-depth.
-- [Rendering Signed Distance Fields, Part 3 « Essential Math Weblog](https://www.essentialmath.com/blog/?p=151) - Part 3 of the blog presents the final shader product for anti-aliasing.
+- [Rendering Signed Distance Fields, Part 3 « Essential Math Weblog](https://www.essentialmath.com/blog/?p=151) - Part 3 of the blog presents the final shader product for antialiasing.
 - [Partial Derivatives (fwidth) | Ronja's tutorials](https://www.ronja-tutorials.com/post/046-fwidth/) - Explains what and how the partial derivate functions fwidth(), ddx() and ddy() work *(dFdx() and dFdy() in glsl)*.
 
 #### MSDFs (Multi-channel signed distance field)
@@ -103,4 +103,4 @@ There are two reasons why I wanted to make this repo. The first reason is that I
 
 All contributions, such as fixing grammar, adding new sources and improving shader code, are welcome.
 
-If you have questions about the topic feel free to post them in the [discussions section](https://github.com/Blatko1/awesome-msdf/discussions).
+If you have questions about the topic, feel free to post them in the [discussions section](https://github.com/Blatko1/awesome-msdf/discussions).
