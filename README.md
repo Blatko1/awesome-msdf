@@ -49,35 +49,35 @@ void main() {
 
 ## Sources, links, articles, discussions, more info
 
-Below, you you can find links to all the sources that helped me learn about MSDF and create the showcase.
+Below, you can find links to all the sources that helped me learn about MSDF and create the showcase.
 
-#### Intro
+#### Introductory sources
 
 - [What is state-of-the-art for text rendering in OpenGL as of version 4.1? - Stack Overflow](https://stackoverflow.com/questions/5262951/what-is-state-of-the-art-for-text-rendering-in-opengl-as-of-version-4-1) - A discussion about today's popular text rendering methods, including SDFs.
-- [Text Rendering For Games](https://docs.google.com/presentation/d/1NCYNyR726F6j7vxwxFw0w0t8c6DUbiEMaxwMBbdP__0/edit#slide=id.g43674374e_046) - The presentation covers three different ways to render text for games (one being SDFs).
-- [The Valve paper](https://steamcdn-a.akamaihd.net/apps/valve/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf) - This short *pdf*  by *Valve* originally proposed using distance fields to render text.
+- [Text Rendering For Games](https://docs.google.com/presentation/d/1NCYNyR726F6j7vxwxFw0w0t8c6DUbiEMaxwMBbdP__0/edit#slide=id.g43674374e_046) - A presentation which covers three different ways to render text for games (one being SDFs).
+- [The Valve paper](https://steamcdn-a.akamaihd.net/apps/valve/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf) - A short *pdf* by *Valve* originally proposed using distance fields to render text.
 
-#### SDFs (Signed distance field)
+#### About SDFs (Signed distance fields)
 
-- [Glyphs, shapes, fonts, signed distance fields - YouTube](https://www.youtube.com/watch?v=1b5hIMqz_wM) - Short video explaining how to generate and use SDFs to render text or other 2D shapes.
-- [Drawing Text with Signed Distance Fields in Mapbox GL](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817) - This short article covers how SDFs work and the basic usage of SDFs for text rendering.
+- [Glyphs, shapes, fonts, signed distance fields - YouTube](https://www.youtube.com/watch?v=1b5hIMqz_wM) - A short video explaining how to generate and use SDFs to render text or other 2D shapes.
+- [Drawing Text with Signed Distance Fields in Mapbox GL](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817) - A short article covering how SDFs work and the basic usage of SDFs for text rendering.
 
 #### Anti-aliasing SDF text
 
-- [Cinder-SdfText: Initial Release (WIP) - Cinder](https://discourse.libcinder.org/t/cinder-sdftext-initial-release-wip) - Interesting discussion about an SDF text renderer and improving the shader code to preserve the quality of minified SDF texts.
-- [Signed-distance-field fonts look crappy at small pt sizes - JVM Gaming](https://jvm-gaming.org/t/solved-signed-distance-field-fonts-look-crappy-at-small-pt-sizes/49617) - Another interesting discussion where preserving the quality of scaled SDF texts is the main topic.
-- [Antialiasing with a signed distance field - Musing Mortoray](https://mortoray.com/antialiasing-with-a-signed-distance-field/) - This article explains how to set up the shader code for true anti-aliasing correctly.
-- [Antialiasing For SDF Textures](https://drewcassidy.me/2020/06/26/sdf-antialiasing/) - An article which shows different ways of setting up the shader code for better anti-aliasing. Some parts are based on the explanations of the article above.
-- [Rendering Signed Distance Fields, Part 1 « Essential Math Weblog](http://www.essentialmath.com/blog/?p=111) - Part 1 of the blog explains the math behind the anti-aliasing of SDF text.
-- [Rendering Signed Distance Fields, Part 2 « Essential Math Weblog](http://www.essentialmath.com/blog/?p=128) - Part 2 of the blog goes more in in-depth.
-- [Rendering Signed Distance Fields, Part 3 « Essential Math Weblog](https://www.essentialmath.com/blog/?p=151) - Part 3 of the blog presents the final shader product for anti-aliasing.
-- [Partial Derivatives (fwidth) | Ronja's tutorials](https://www.ronja-tutorials.com/post/046-fwidth/) - Explains what and how the partial derivate functions fwidth(), ddx() and ddy() work *(dFdx() and dFdy() in glsl)*.
+- [Cinder-SdfText: Initial Release (WIP) - Cinder](https://discourse.libcinder.org/t/cinder-sdftext-initial-release-wip) - A discussion about an SDF text renderer and improving the shader code to preserve the quality of minified SDF texts.
+- [Signed-distance-field fonts look crappy at small pt sizes - JVM Gaming](https://jvm-gaming.org/t/solved-signed-distance-field-fonts-look-crappy-at-small-pt-sizes/49617) - A discussion about preserving the quality of scaled SDF texts.
+- [Antialiasing with a signed distance field - Musing Mortoray](https://mortoray.com/antialiasing-with-a-signed-distance-field/) - An article explaining how to set up the shader code to utilize true antialiasing correctly.
+- [Antialiasing For SDF Textures](https://drewcassidy.me/2020/06/26/sdf-antialiasing/) - An article showing different ways of setting up the shader code for better antialiasing. Some parts are based on the explanations of the article above.
+- [Rendering Signed Distance Fields, Part 1 « Essential Math Weblog](http://www.essentialmath.com/blog/?p=111) - Part 1 of the blog explains the math behind the antialiasing of SDF text.
+- [Rendering Signed Distance Fields, Part 2 « Essential Math Weblog](http://www.essentialmath.com/blog/?p=128) - Part 2 of the blog goes into more depth.
+- [Rendering Signed Distance Fields, Part 3 « Essential Math Weblog](https://www.essentialmath.com/blog/?p=151) - Part 3 of the blog presents the final shader product for antialiasing.
+- [Partial Derivatives (fwidth) | Ronja's tutorials](https://www.ronja-tutorials.com/post/046-fwidth/) - Explanation about what and how the partial derivate functions ***fwidth()***, ***ddx()*** and ***ddy()*** work *(in glsl terms dFdx() and dFdy())*.
 
 #### MSDFs (Multi-channel signed distance field)
 
-- [Chlumsky/msdfgen: Multi-channel signed distance field generator](https://github.com/Chlumsky/msdfgen) - Utility for generating SDF and M(T)SDF from vector shapes and fonts. Use [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen) to generate font atlases for rendering. If this project didn't exist, this repo wouldn't exist either.
+- [Chlumsky/msdfgen: Multi-channel signed distance field generator](https://github.com/Chlumsky/msdfgen) - A utility for generating SDF and M(T)SDF from vector shapes and fonts. Use [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen) to generate font atlases for rendering. **If this project hadn't existed, this repository wouldn't have existed either.**
 - [Implementing SDF/MSDF Font In OpenGL](https://medium.com/@calebfaith/implementing-msdf-font-in-opengl-ea09a9ab7e00) - An article covering how MSDFs are generated, how they work and the basic usage of MSDFs for text rendering.
-- [MSDF text rendering performance demonstration - YouTube](https://www.youtube.com/watch?v=r-2z-ccuZKE) - Short video presenting the performance of using MSDFs when rendering a lot of text. Note that minified text looks much worse than the rest, but I am convinced that methods used in this showcase avoid that efficiently.
+- [MSDF text rendering performance demonstration - YouTube](https://www.youtube.com/watch?v=r-2z-ccuZKE) - Short video presenting the performance of using MSDFs when rendering a lot of text. Note that minified text looks much worse than the rest, but I am convinced that methods used in this repository showcase avoid that efficiently.
 
 #### Helpful code snippets
 
@@ -89,16 +89,16 @@ Below, you you can find links to all the sources that helped me learn about MSDF
 - [MSDF Preview](https://gist.github.com/Chlumsky/263c960ae0a7df59afc2da4051eb0553),
 - [Cierpliwy/sdf-test](https://github.com/Cierpliwy/sdf-test),
 - [jinleili/sdf-text-view](https://github.com/jinleili/sdf-text-view/tree/master/shader-wgsl) - *wgsl* shaders,
-- [TinySDF demo](https://mapbox.github.io/tiny-sdf/),
+- [TinySDF demo](https://mapbox.github.io/tiny-sdf/) - for experimenting with SDFs,
 - [ShoYamanishi/SDFont](https://github.com/ShoYamanishi/SDFont/blob/master/shaders/VanillaSignedDistFontFragment.glsl)
 - [MaxVell89/particles-animation](https://github.com/MaxVell89/particles-animation/blob/13f4bb7a3e41ad899f335b65092820291a28a694/src/js/modules/shader/msdf/fragment.glsl)
 
-### The repo motive
+## The repo motive
 
-There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the rare findings on this topic over the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. I want to fill this repo with as much information and code examples (basic to advanced) as possible, so other people don't have to search aimlessly.
+There are two reasons why I wanted to make this repo. The first reason is that I am very interested in distance fields and their usage in rendering. Therefore, this repo helps me to understand and learn more. The second reason is the rare findings on this topic over the internet. While searching for code examples and usage information regarding the subject, I could only find a few articles. Also, searching on GitHub, I often found the same basic *code snippet* repeating itself in almost every repo. I want to fill this repo with as much information and code examples (basic to advanced) as possible so other people don't have to search aimlessly.
 
-### Contributing and questions
+## Contributing and questions
 
 All contributions, such as fixing grammar, adding new sources and improving shader code, are welcome.
 
-If you have questions about the topic feel free to post them in the [discussions section](https://github.com/Blatko1/MSDF-showcase/discussions).
+If you have questions about the topic, feel free to post them in the [discussions section](https://github.com/Blatko1/MSDF-showcase/discussions).

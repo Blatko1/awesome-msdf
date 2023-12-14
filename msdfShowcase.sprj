@@ -521,12 +521,13 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="file" name="softness" shader="vs" />
-		<entry type="file" name="softness" shader="ps" />
+		<entry type="property" name="thicknessChar" item="pipe" />
+		<entry type="file" name="thickness" shader="vs" />
+		<entry type="file" name="thickness" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>6</distance>
-			<pitch>2</pitch>
-			<yaw>0</yaw>
+			<distance>9</distance>
+			<pitch>28</pitch>
+			<yaw>59</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />
