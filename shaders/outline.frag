@@ -43,10 +43,10 @@ void main() {
   	// to the character border (0.5 to the inside and outside).
 	float bodyOpacity = smoothstep(-0.5, 0.5, bodyPxDist);
 	
-	float outlineThickness = outlineThickness * abs(cos(time*TIME_SPEED));
+	float t = outlineThickness * abs(cos(time*TIME_SPEED));
 
-	// Distance in pixels to the full body (with outline) edge and opacity
-	float charPxDist = pxRange * (dist + outlineThickness);
+	// Distance (in pixels) to the full body (with outline) edge and calculate opacity
+	float charPxDist = pxRange * (dist + t);
 	float charOpacity = smoothstep(-0.5, 0.5, charPxDist);
 	
 	// Get only the outline opacity

@@ -245,7 +245,7 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="innerOutline" type="shader" active="true" patchverts="1">
+		<pass name="innerOutline" type="shader" active="true" patchverts="1" collapsed="true">
 			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\innerOutline.frag" entry="main" />
 			<inputlayout>
@@ -303,7 +303,7 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="thickness" type="shader" active="true" patchverts="1">
+		<pass name="thickness" type="shader" active="true" patchverts="1" collapsed="true">
 			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\thickness.frag" entry="main" />
 			<inputlayout>
@@ -521,13 +521,15 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="file" name="innerOutline" shader="ps" />
+		<entry type="property" name="outline" item="pipe" />
 		<entry type="file" name="thickness" shader="ps" />
+		<entry type="file" name="innerOutline" shader="vs" />
+		<entry type="file" name="innerOutline" shader="ps" />
 		<entry type="file" name="outline" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>3</distance>
-			<pitch>0</pitch>
-			<yaw>8</yaw>
+			<distance>6</distance>
+			<pitch>5</pitch>
+			<yaw>1</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />

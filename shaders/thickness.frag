@@ -19,8 +19,8 @@ float screenPxRange() {
 
 const vec4 fgColor = vec4(0.7, 0.3, 0.4, 1.0);
 
-//float thickness = 0.1; // Range: -0.3 < thickness < 0.3
-float maxThickness = 0.3;
+// Range: -0.4 < thickness < 0.4
+float thickness = 0.28;
 
 void main() {
 	vec4 texel = texture(texs, uvCoord);
@@ -29,9 +29,10 @@ void main() {
 		discard;
 	}
 	
-	float thickness = maxThickness * cos(time * TIME_SPEED);
+	float t = thickness * cos(time * TIME_SPEED);
 	
-  	float pxDist = screenPxRange() * (dist - 0.5 + thickness);
+	// Distance (in pixels) to the body edge and calculate opacity
+  	float pxDist = screenPxRange() * (dist - 0.5 + t);
 	float opacity = smoothstep(-0.5, 0.5, pxDist);
 	
 	gl_FragColor = vec4(fgColor.rgb, opacity);
