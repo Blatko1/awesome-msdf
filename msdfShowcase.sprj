@@ -187,7 +187,7 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="outline" type="shader" active="true" patchverts="1">
+		<pass name="outline" type="shader" active="true" patchverts="1" collapsed="true">
 			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\outline.frag" entry="main" />
 			<inputlayout>
@@ -521,11 +521,10 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="outline" item="pipe" />
-		<entry type="file" name="thickness" shader="ps" />
-		<entry type="file" name="innerOutline" shader="vs" />
-		<entry type="file" name="innerOutline" shader="ps" />
-		<entry type="file" name="outline" shader="ps" />
+		<entry type="property" name="minifiedGammaCorr" item="pipe" />
+		<entry type="file" name="basic" shader="vs" />
+		<entry type="file" name="basic" shader="ps" />
+		<entry type="file" name="minifiedGammaCorr" shader="ps" />
 		<entry type="camera" fp="false">
 			<distance>6</distance>
 			<pitch>5</pitch>
