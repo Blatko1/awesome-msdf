@@ -187,16 +187,16 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="outlining" type="shader" active="true" patchverts="1" collapsed="true">
+		<pass name="outline" type="shader" active="true" patchverts="1">
 			<shader type="vs" path="shaders\default.vert" entry="main" />
-			<shader type="ps" path="shaders\outlining.frag" entry="main" />
+			<shader type="ps" path="shaders\outline.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
 				<item value="Texcoord" semantic="TEXCOORD0" />
 			</inputlayout>
 			<rendertexture />
 			<items>
-				<item name="outliningRS" type="renderstate">
+				<item name="outlineRS" type="renderstate">
 					<blend>true</blend>
 					<alpha2coverage>false</alpha2coverage>
 					<colorsrcfactor>Source Alpha</colorsrcfactor>
@@ -245,16 +245,16 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="alternateOutlining" type="shader" active="true" patchverts="1" collapsed="true">
+		<pass name="innerOutline" type="shader" active="true" patchverts="1">
 			<shader type="vs" path="shaders\default.vert" entry="main" />
-			<shader type="ps" path="shaders\alternateOutlining.frag" entry="main" />
+			<shader type="ps" path="shaders\innerOutline.frag" entry="main" />
 			<inputlayout>
 				<item value="Position" semantic="POSITION" />
 				<item value="Texcoord" semantic="TEXCOORD0" />
 			</inputlayout>
 			<rendertexture />
 			<items>
-				<item name="alternateOutliningRS" type="renderstate">
+				<item name="innerOutlineRS" type="renderstate">
 					<blend>true</blend>
 					<alpha2coverage>false</alpha2coverage>
 					<colorsrcfactor>Source Alpha</colorsrcfactor>
@@ -284,14 +284,14 @@
 					<depthfrontfail>Keep</depthfrontfail>
 					<depthbackfail>Keep</depthbackfail>
 				</item>
-				<item name="altOutlineChar" type="geometry">
+				<item name="innerOutlineChar" type="geometry">
 					<type>Plane</type>
 					<width>1</width>
 					<height>1</height>
 					<depth>1</depth>
 					<scaleX>1.39999998</scaleX>
 					<scaleY>1.39999998</scaleY>
-					<x>-1.29532182</x>
+					<x>-1.35680914</x>
 					<topology>TriangleList</topology>
 				</item>
 			</items>
@@ -303,7 +303,7 @@
 			</variables>
 			<macros />
 		</pass>
-		<pass name="thickness" type="shader" active="true" patchverts="1" collapsed="true">
+		<pass name="thickness" type="shader" active="true" patchverts="1">
 			<shader type="vs" path="shaders\default.vert" entry="main" />
 			<shader type="ps" path="shaders\thickness.frag" entry="main" />
 			<inputlayout>
@@ -515,19 +515,19 @@
 		</object>
 		<object type="texture" path="assets\A_letter.png" vflip="false" min_filter="Linear" mag_filter="Linear" wrap_s="ClampToEdge" wrap_t="ClampToEdge">
 			<bind slot="4" name="basic" />
-			<bind slot="0" name="outlining" />
-			<bind slot="0" name="alternateOutlining" />
+			<bind slot="0" name="outline" />
+			<bind slot="0" name="innerOutline" />
 		</object>
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="thicknessChar" item="pipe" />
-		<entry type="file" name="thickness" shader="vs" />
+		<entry type="file" name="innerOutline" shader="ps" />
 		<entry type="file" name="thickness" shader="ps" />
+		<entry type="file" name="outline" shader="ps" />
 		<entry type="camera" fp="false">
-			<distance>9</distance>
-			<pitch>28</pitch>
-			<yaw>59</yaw>
+			<distance>3</distance>
+			<pitch>0</pitch>
+			<yaw>8</yaw>
 			<roll>360</roll>
 		</entry>
 		<entry type="clearcolor" r="0" g="0" b="0" a="0" />

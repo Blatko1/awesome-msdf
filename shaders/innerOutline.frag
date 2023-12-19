@@ -20,8 +20,12 @@ float screenPxRange() {
 const vec4 fgColor = vec4(0.2, 0.3, 0.4, 1.0);
 const vec4 outlineColor = vec4(0.6, 0.7, 0.3, 1.0);
 
-float thickness = 0.3;
-float maxThickness = 0.4 + thickness;
+// Watch out if the difference between the two thicknesses is bigger than,
+// in this case, 0.4! Artefacts will appear!
+// Range: -0.4 < fullBodyThickness < 0.4
+float fullBodyThickness = 0.2;
+// Range: 0.0 < innerOutlineThickness < (fullBodyThickness + 0.4)
+float innerOutlineThickness = 0.3;
 
 void main() {
 	vec4 texel = texture(tex, uvCoord);
@@ -30,18 +34,24 @@ void main() {
 		discard;
 	}
 	float pxRange = screenPxRange();
-	dist -= 0.5 - thickness;
 	
+	// Distance to the full body (with outline) edge
+	dist += -0.5 + fullBodyThickness;
+	
+	// Get that distance in pixels and get the opacity
   	float charPxDist = pxRange * dist;
 	float charOpacity = smoothstep(-0.5, 0.5, charPxDist);
 	
-	float outlineThickness = maxThickness * abs(cos(1.57+time*TIME_SPEED));
+	float outlineThickness = innerOutlineThickness * abs(cos(1.57+time*TIME_SPEED));
 	
+	// Distance in pixels to the mid body edge (outline subtracted) and opacity
 	float bodyPxDist = pxRange * (dist - outlineThickness);
 	float bodyOpacity = smoothstep(-0.5, 0.5, bodyPxDist);
 	
+	// Get only the outline opacity
 	float outlineOpacity = charOpacity - bodyOpacity;
 	
+	// Calculate the output color
 	vec3 color = mix(outlineColor.rgb, fgColor.rgb, bodyOpacity);
 	float alpha = bodyOpacity * fgColor.a + outlineOpacity * outlineColor.a;
 	

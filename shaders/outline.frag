@@ -20,9 +20,10 @@ float screenPxRange() {
 const vec4 fgColor = vec4(0.1, 0.3, 0.4, 1.0);
 const vec4 outlineColor = vec4(0.95, 0.4, 0.3, 1.0);
 
-float thickness = -0.2; // Range: -0.3 < thickness < 0.3
-//float outlineThickness = 0.3; // Range: 0.0 < outlineThickness < 0.4
-float maxThickness = 0.4 - thickness;
+// Range: -0.4 < midBodyThickness < 0.4
+float midBodyThickness = -0.1;
+// Range: 0.0 < outlineThickness < (0.4 - midBodyThickness)
+float outlineThickness = 0.48;
 
 void main() {
 	vec4 texel = texture(tex, uvCoord);
@@ -31,25 +32,27 @@ void main() {
 		discard;
 	}
 	float pxRange = screenPxRange();
-	dist -= 0.5 - thickness;
-	//float maxPxDist = pxRange/2;
-	//float thicknessFactor = maxPxDist * thicknessFactor;
 	
-  	//float bodyOpacity = clamp(bodyPxDist, 0, 1);
+	// Distance to the mid body (no outline) edge
+	dist += -0.5 + midBodyThickness;
+	
+	// Get that distance in pixels and the opacity
   	float bodyPxDist = pxRange * dist;
   	// Since we have pxDist representing distance in screen
   	// pixels, we can smoothstep between the two closest pixels
   	// to the character border (0.5 to the inside and outside).
 	float bodyOpacity = smoothstep(-0.5, 0.5, bodyPxDist);
 	
-	float outlineThickness = maxThickness * abs(cos(time*TIME_SPEED));
+	float outlineThickness = outlineThickness * abs(cos(time*TIME_SPEED));
 
+	// Distance in pixels to the full body (with outline) edge and opacity
 	float charPxDist = pxRange * (dist + outlineThickness);
 	float charOpacity = smoothstep(-0.5, 0.5, charPxDist);
-	//float charOpacity = clamp(charPxDist + borderDist - outlineThickness, 0.0, 1.0);
 	
+	// Get only the outline opacity
 	float outlineOpacity = charOpacity - bodyOpacity;
 	
+	// Calculate the output color
 	vec3 color = mix(outlineColor.rgb, fgColor.rgb, bodyOpacity);
 	float alpha = bodyOpacity * fgColor.a + outlineOpacity * outlineColor.a;
 	
