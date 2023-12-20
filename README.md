@@ -33,9 +33,9 @@ float median(float r, float g, float b) {
 }
 
 float screenPxRange() {
-    vec2 unitRange = vec2(6.0)/vec2(textureSize(tex, 0));
-    vec2 screenTexSize = vec2(1.0)/fwidth(uvCoord);
-    return max(0.5*dot(unitRange, screenTexSize), 1.0);
+    vec2 unitRange = vec2(6.0) / vec2(textureSize(tex, 0));
+    vec2 screenTexSize = vec2(1.0) / fwidth(uvCoord);
+    return max(0.5 * dot(unitRange, screenTexSize), 1.0);
 }
 
 void main() {
