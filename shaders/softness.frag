@@ -36,7 +36,9 @@ void main() {
 		discard;
 	}
 	float pxRange = screenPxRange();
-	dist -= 0.5 - thickness;
+	dist -= 0.5;
+	
+	dist += thickness;
 
   	float bodyPxDist = pxRange * dist;
   	softness *= pxRange;

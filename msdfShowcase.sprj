@@ -521,10 +521,10 @@
 	</objects>
 	<cameras />
 	<settings>
-		<entry type="property" name="minifiedGammaCorr" item="pipe" />
-		<entry type="file" name="basic" shader="vs" />
+		<entry type="property" name="twoOutlines" item="pipe" />
+		<entry type="file" name="softness" shader="ps" />
+		<entry type="file" name="twoOutlines" shader="ps" />
 		<entry type="file" name="basic" shader="ps" />
-		<entry type="file" name="minifiedGammaCorr" shader="ps" />
 		<entry type="camera" fp="false">
 			<distance>6</distance>
 			<pitch>5</pitch>

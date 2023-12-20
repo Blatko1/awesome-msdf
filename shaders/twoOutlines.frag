@@ -22,8 +22,9 @@ const vec4 fgColor = vec4(0.41797, 0.480469, 0.54688, 1.0);
 const vec4 outline1Color = vec4(0.230469, 0.300781, 0.378906, 1.0);
 const vec4 outline2Color = vec4(0.972656, 0.816406, 0.05859, 1.0);
 
-float thickness = -0.3;
-float maxThickness = 0.4 - thickness;
+float bodyThickness = -0.3;
+float outline1Thickness = 0.35;
+float outline2Thickness = 0.25;
 
 void main() {
 	vec4 texel = texture(tex, uvCoord);
@@ -32,25 +33,35 @@ void main() {
 		discard;
 	}
 	float pxRange = screenPxRange();
-	dist -= 0.5 - thickness;
+	dist -= 0.5;
 	
+	// Distance to the body (no outline) edge
+	dist += bodyThickness;
+	
+	// Get that distance in pixels and the opacity
   	float bodyPxDist = pxRange * dist;
 	float bodyOpacity = smoothstep(-0.5, 0.5, bodyPxDist);
 	
-	float outline1Thickness = maxThickness * abs(cos(time*TIME1_SPEED));
+	float t1 = outline1Thickness * abs(cos(time*TIME1_SPEED));
 	
-	float char1PxDist = pxRange * (dist + outline1Thickness);
-	float char1Opacity = smoothstep(-0.5, 0.5, char1PxDist);
+	// Distance (in pixels) to the body with first outline edge and opacity
+	dist += t1;
+	float outline1PxDist = pxRange * dist;
+	float bodyWithOutline1Opacity = smoothstep(-0.5, 0.5, outline1PxDist);
 	
-	float outline2Thickness = (maxThickness-outline1Thickness) * abs(cos(time*TIME2_SPEED));
+	float t2 = outline2Thickness * abs(cos(time*TIME2_SPEED));
 	
-	float char2PxDist = pxRange * (dist + outline1Thickness + outline2Thickness);
-	float char2Opacity = smoothstep(-0.5, 0.5, char2PxDist);
+	// Distance (in pixels) to the body with second outline edge and opacity
+	dist += t2;
+	float outline2PxDist = pxRange * dist;
+	float bodyWithOutline2Opacity = smoothstep(-0.5, 0.5, outline2PxDist);
 
-	float outline1Opacity = char1Opacity - bodyOpacity;
-	float outline2Opacity = char2Opacity - char1Opacity;
-	
-	vec3 color = mix(outline2Color.rgb, mix(outline1Color.rgb, fgColor.rgb, bodyOpacity),char1Opacity);
+	// Get the first and second outline opacity
+	float outline1Opacity = bodyWithOutline1Opacity - bodyOpacity;
+	float outline2Opacity = bodyWithOutline2Opacity - bodyWithOutline1Opacity;
+
+	// Calculate the output color
+	vec3 color = mix(mix(outline2Color.rgb, outline1Color.rgb, outline1Opacity), fgColor.rgb, bodyOpacity);
 	float alpha = bodyOpacity * fgColor.a + outline1Opacity * outline1Color.a + outline2Opacity * outline2Color.a;
 	
 	gl_FragColor = vec4(color, alpha);
