@@ -2,7 +2,7 @@
 
 <p align="center"><img src="assets/showcase/showcase.gif" alt="Logo"></p>
 
-> ⚠️ This repo is still being developed, so you may not find some of the listed *features*. ⚠️
+> ⚠️ This repo is still in development, so you may not find some of the listed *features*. ⚠️
 
 ***awesome-msdf*** is a collection of various *glsl shaders* utilizing **MSDF (multi-channel signed distance fields)** to render text in high quality while being *magnified*, *minified* or *rotated* in 3D space. It shows the basic usage of MSDF in text rendering with some additional, more advanced text modifiers.
 
